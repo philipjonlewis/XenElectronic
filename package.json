@@ -4,7 +4,10 @@
   "description": "One Paragraph of project description goes here",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "npm run --prefix ./server dev",
+    "client": "npm run --prefix ./client dev",
+    "dev": "concurrently npm:server npm:client"
   },
   "repository": {
     "type": "git",
@@ -19,5 +22,8 @@
   "homepage": "https://github.com/philipjonlewis/XenElectronic#readme",
   "dependencies": {
     "concurrently": "^7.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
   }
 }
