@@ -1,18 +1,19 @@
-export default {
+module.exports = {
   env: {
-    browser: true,
+    browser: false,
     es2021: true,
   },
-  extends: [
-    ["eslint:recommended", "prettier"],
-    "plugin:@typescript-eslint/recommended",
-  ],
+  extends: 'airbnb',
+  // extends: ['standard-with-typescript', 'airbnb'],
   overrides: [],
-  parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
+    ecmaVersion: 'latest',
+    sourceType: 'module',
   },
-  plugins: ["@typescript-eslint"],
-  rules: {},
+  rules: {
+    'no-console': 'warn',
+    'import/prefer-default-export': 'off',
+    'no-unused-vars': 'warn',
+    'linebreak-style': 0,
+  },
 };

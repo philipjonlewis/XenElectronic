@@ -1,5 +1,4 @@
 export const config = {
-    environment: "development",
-    URL:"/prosperna_backend/api_v1"
-  };
-  
+  environment: 'development',
+  URL: '/prosperna_backend/api_v1',
+};

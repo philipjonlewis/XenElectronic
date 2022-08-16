@@ -1,24 +1,23 @@
-import express, { Express, Request, Response, NextFunction } from "express";
+import express, { Express, Request, Response, NextFunction } from 'express';
 const app: Express = express();
 
-import { config } from "./config";
-import cookieParser from "cookie-parser";
-import helmet from "helmet";
-import cors from "cors";
-import nocache from "nocache";
+import { config } from './config';
+import cookieParser from 'cookie-parser';
+import helmet from 'helmet';
+import cors from 'cors';
+import nocache from 'nocache';
+import morgan from 'morgan';
+import rateLimit from 'express-rate-limit';
 
-import morgan from "morgan";
-import rateLimit from "express-rate-limit";
+var boolParser = require('express-query-boolean');
+require('dotenv').config();
 
-var boolParser = require("express-query-boolean");
-require("dotenv").config();
+app.disable('x-powered-by');
 
-app.disable("x-powered-by");
+app.set('trust proxy', true);
+app.set('etag', false);
 
-app.set("trust proxy", true);
-app.set("etag", false);
-
-app.use(morgan("dev"));
+app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser(process.env.WALKERS_SHORTBREAD));
@@ -28,8 +27,8 @@ app.use(nocache());
 
 app.use(
   cors({
-    origin: "*",
-    methods: ["GET", "POST", "PATCH", "DELETE"],
+    origin: '*',
+    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
     credentials: true,
   })
 );
@@ -44,21 +43,21 @@ app.use(
 );
 
 app.use(function (req: Request, res: Response, next: NextFunction) {
-  res.header("Content-Type", "application/json;charset=UTF-8");
+  res.header('Content-Type', 'application/json;charset=UTF-8');
   res.header(
-    "Access-Control-Allow-Credentials",
-    process.env.FRONTEND_PORT || "*"
+    'Access-Control-Allow-Credentials',
+    process.env.FRONTEND_PORT || '*'
   );
-  res.header("Access-Control-Allow-Credentials", "true");
+  res.header('Access-Control-Allow-Credentials', 'true');
   res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
   );
   next();
 });
 
-app.get("*", (req: Request, res: Response) => {
-  res.send("Page does not exit");
+app.get('*', (req: Request, res: Response) => {
+  res.send('Page does not exit');
 });
 
 export default app;

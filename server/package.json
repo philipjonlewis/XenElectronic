@@ -9,7 +9,8 @@
     "start": "tsc && node dist/app.js",
     "dev": "nodemon src/server.ts",
     "build": "tsc -project ./",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "lintfix": "eslint --fix . --ext .ts"
   },
   "keywords": [],
   "author": "",
@@ -36,10 +37,13 @@
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-node": "^4.1.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard-with-typescript": "^22.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-n": "^15.2.4",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "nodemon": "^2.0.19",
@@ -69,7 +73,6 @@
     "nocache": "^3.0.4",
     "rate-limiter-flexible": "^2.3.7",
     "sanitize-html": "^2.7.0",
-    "typescript": "^4.7.4",
     "uuid": "^8.3.2"
   }
 }
