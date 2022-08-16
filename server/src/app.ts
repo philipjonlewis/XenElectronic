@@ -1,15 +1,16 @@
 import express, { Express, Request, Response, NextFunction } from 'express';
-const app: Express = express();
 
-import { config } from './config';
 import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
 import cors from 'cors';
 import nocache from 'nocache';
 import morgan from 'morgan';
 import rateLimit from 'express-rate-limit';
+import { config } from './config';
 
-var boolParser = require('express-query-boolean');
+const app: Express = express();
+
+const boolParser = require('express-query-boolean');
 require('dotenv').config();
 
 app.disable('x-powered-by');
@@ -42,7 +43,7 @@ app.use(
   })
 );
 
-app.use(function (req: Request, res: Response, next: NextFunction) {
+app.use((req: Request, res: Response, next: NextFunction) => {
   res.header('Content-Type', 'application/json;charset=UTF-8');
   res.header(
     'Access-Control-Allow-Credentials',

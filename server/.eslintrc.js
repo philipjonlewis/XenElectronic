@@ -1,19 +1,24 @@
 module.exports = {
   env: {
-    browser: false,
+    browser: true,
     es2021: true,
   },
-  extends: 'airbnb',
-  // extends: ['standard-with-typescript', 'airbnb'],
+  extends: ['standard-with-typescript', 'airbnb'],
   overrides: [],
   parserOptions: {
+    project: ['./tsconfig.json'],
+    tsconfigRootDir: __dirname,
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
   rules: {
-    'no-console': 'warn',
+    semi: 'always',
+    'import/no-unresolved': 'off',
+    'no-unused-vars': 'off',
+    'import/extensions': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/semi ': 'off',
     'import/prefer-default-export': 'off',
-    'no-unused-vars': 'warn',
-    'linebreak-style': 0,
   },
 };
