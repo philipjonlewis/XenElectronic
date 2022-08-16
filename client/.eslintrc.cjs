@@ -26,7 +26,7 @@ module.exports = {
   },
   plugins: ['react', 'react-hooks', '@typescript-eslint', 'prettier'],
   rules: {
-    semi: 'off',
+    semi: 0,
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
@@ -38,5 +38,6 @@ module.exports = {
       'error',
       { devDependencies: false, optionalDependencies: false, peerDependencies: false },
     ],
-  },
+    'jsx-quotes': [2, 'prefer-single'],
+    "@typescript-eslint/explicit-function-return-type":0
 }
