@@ -10,7 +10,7 @@ export default function ThemeProvider({ children }: any) {
 
   return (
     <div id='theme-wrapper' className={`${theme}`}>
-      <div className='bg-gray-50 dark:bg-neutral-900 h-full w-full '>
+      <div className='bg-gray-50 dark:bg-neutral-900 min-h-screen min-w-full '>
         <div className='container mx-auto'>
           <Header setTheme={setTheme} theme={theme} />
           {children}

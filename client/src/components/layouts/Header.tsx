@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { MoonIcon, SunIcon } from '@heroicons/react/solid'
 const Header = ({ theme, setTheme }) => {
   return (
-    <header className='h-24 flex justify-between items-center p-4 border-b-[1px] fixed w-full bg-gray-50 dark:bg-neutral-800  bg-opacity-60  backdrop-blur-sm'>
+    <header className='container h-24 flex justify-between items-center p-4 border-b-[1px] fixed w-full bg-gray-50 dark:bg-neutral-800  bg-opacity-60  backdrop-blur-sm '>
       <div className='logo-container'>
         <p className='text-xl font-bold text-indigo-600 dark:text-white'>XenElectronic</p>
       </div>

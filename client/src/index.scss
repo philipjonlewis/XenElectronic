@@ -10,6 +10,10 @@
   ::selection {
     @apply text-white bg-indigo-500;
   }
+
+  p {
+    @apply text-slate-800 dark:text-gray-100;
+  }
 }
 
 html,
