@@ -49,7 +49,6 @@ export const getAllProductsController = asyncHandler(
       console.log(category);
 
       const newCat = (category as string).toLowerCase().split(',');
-      console.log(newCat);
 
       const allProducts = (await ProductModel.find({
         ...(category
