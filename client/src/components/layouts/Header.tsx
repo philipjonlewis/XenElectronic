@@ -4,14 +4,12 @@ import { NavLink, useNavigate } from 'react-router-dom'
 
 const Header = ({ theme, setTheme }) => {
   return (
-    <header className=' container h-24 flex justify-between items-center p-4 sticky top-2 sm:top-0 w-full  bg-slate-50 dark:bg-indigo-700  bg-opacity-80  backdrop-blur-sm sm:rounded-sm z-50'>
+    <header className='header-container'>
       <NavLink to={'/'}>
         <div className='logo-container'>
-          <div className='text-xl font-bold text-indigo-500 dark:text-white flex'>
-            {' '}
-            <LightBulbIcon className='h-6 w-6 mr-2' />
-            <p>XenElectronic</p>
-          </div>
+          {' '}
+          <LightBulbIcon className='h-6 w-6 mr-2' />
+          <p>XenElectronic</p>
         </div>
       </NavLink>
       <div className=''>

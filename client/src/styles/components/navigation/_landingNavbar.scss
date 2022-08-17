@@ -1,0 +1,19 @@
+.landing-navbar-container {
+  @apply text-sm sticky hidden sm:flex top-28 p-2 mt-4 mb-2 sm:rounded-sm bg-slate-50  justify-between items-center text-neutral-500 bg-opacity-80  backdrop-blur-sm z-50;
+
+  .sub-container {
+    @apply flex gap-2;
+
+    .nav-link {
+      @apply flex flex-col justify-center items-center w-20 py-1 hover:text-yellow-500;
+
+      .nav-icon {
+        @apply h-5 w-5;
+      }
+
+      p {
+        @apply pt-2 text-xs;
+      }
+    }
+  }
+}

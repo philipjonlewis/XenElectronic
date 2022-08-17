@@ -1,0 +1,31 @@
+.home-container {
+  @apply w-full flex flex-col;
+
+  .hero-image-container {
+    @apply w-full h-48 overflow-hidden rounded-sm mt-2;
+
+    img {
+      @apply object-cover object-center w-full h-full;
+    }
+  }
+
+  .hero-container {
+    @apply flex flex-col pb-8 pt-4;
+
+    p:nth-of-type(1) {
+      @apply font-serif text-6xl font-bold text-neutral-600;
+    }
+
+    p:nth-of-type(2) {
+      @apply text-lg text-neutral-500 mt-2;
+    }
+
+    .cta-container {
+      @apply mt-12 bg-indigo-500 hover:bg-rose-500 w-fit py-4 px-8 rounded-full;
+
+      p {
+        @apply text-white font-serif font-bold text-base;
+      }
+    }
+  }
+}

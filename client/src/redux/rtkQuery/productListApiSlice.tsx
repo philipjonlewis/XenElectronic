@@ -22,8 +22,8 @@ export const productListApiSlice = createApi({
   endpoints: function (builder) {
     return {
       getProductList: builder.query({
-        query: (count) => {
-          return `/xenelectronic/api_v1/public/products?count=${count}`
+        query: (condition) => {
+          return `/xenelectronic/api_v1/public/products?count=${condition.count}&category=${condition.category}`
         },
         // transformResponse : res => res.sort((a,b) => b.phaseOrder - a.phaseOrder),
         providesTags: ['Project'],

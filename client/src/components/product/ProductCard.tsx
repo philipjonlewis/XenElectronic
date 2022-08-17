@@ -14,6 +14,7 @@ const ProductCard = ({ product }) => {
 
   const addToCartHandler = () => {
     dispatch(addProductToCart(product))
+ 
   }
 
   return (

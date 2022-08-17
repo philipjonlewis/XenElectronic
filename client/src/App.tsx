@@ -5,12 +5,17 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { useGetProductListQuery } from './redux/rtkQuery/productListApiSlice'
-import { addProductToCart } from './redux/cartState'
+import { getProductsFromCart, addProductToCart } from './redux/cartState'
+import { useSelector, useDispatch } from 'react-redux'
 
 function App() {
+  const cart = useSelector((state: any) => state.cart)
   const location = useLocation()
 
-
+  // useEffect(() => {
+  //   const storedCartItems = localStorage.getItem('cartItems')
+  //   console.log('from losto', JSON.parse(storedCartItems))
+  // }, [cart])
 
   return (
     <ThemeProvider>
