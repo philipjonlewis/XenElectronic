@@ -1,3 +1,5 @@
 import LandingNavbar from './navigation/LandingNavbar'
 import HomePageProductList from './lists/HomePageProductList'
-export { LandingNavbar, HomePageProductList }
+import ProductCard from './product/ProductCard'
+
+export { LandingNavbar, HomePageProductList, ProductCard }
