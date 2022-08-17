@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "lint": "eslint src/**/*.{ts,tsx}",
     "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}'",
-    "format": "prettier --write 'src/**/*.{ts,tsx,scss}' --config ./.prettierrc"
+    "format": "prettier --write 'src/**/*.{ts,tsx,scss}' --config ./.prettierrc",
+    "merge-from-main": "git checkout main -- client/ && git commit -m merged from main && git push"
   },
   "dependencies": {
     "@heroicons/react": "^1.0.6",
