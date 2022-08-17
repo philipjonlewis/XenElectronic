@@ -2,19 +2,15 @@ import React, { useState, useEffect } from 'react'
 
 import ProductCard from '../product/ProductCard'
 
-const HomePageProductList = () => {
+const ProductPageProductList = ({ productListQueryResult }) => {
+  const { data, isSuccess, isLoading } = productListQueryResult
   const [productList, setProductList] = useState([])
 
   useEffect(() => {
-    const getProductData = async () => {
-      const res = await fetch('http://localhost:4000/xenelectronic/api_v1/public/products?count=5')
-
-      const dat = await res.json()
-      console.log(dat)
-      setProductList(await dat.payload)
+    if (isSuccess && data.payload.length >= 1) {
+      console.log(data)
+      setProductList(data.payload)
     }
-
-    getProductData()
   }, [])
 
   return (
@@ -27,8 +23,12 @@ const HomePageProductList = () => {
 
       <div className='mx-2 sm:mx-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4 '>
         {productList.length >= 1 &&
-          productList.map((prod, index) => {
-            return <ProductCard key={index} product={prod} />
+          productList.map((prod: any, index) => {
+            return (
+              <React.Fragment key={prod._id}>
+                <ProductCard product={prod} />
+              </React.Fragment>
+            )
           })}
 
         {/* <div className='bg-red-500'>Hello</div> */}
@@ -37,4 +37,4 @@ const HomePageProductList = () => {
   )
 }
 
-export default HomePageProductList
+export default ProductPageProductList

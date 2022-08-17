@@ -33,3 +33,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.active {
+  @apply text-indigo-500;
+}

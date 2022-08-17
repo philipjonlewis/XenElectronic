@@ -4,13 +4,17 @@ import ThemeProvider from './components/ThemeProvider'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { useGetProductListQuery } from './redux/rtkQuery/productListApiSlice'
+import { addProductToCart } from './redux/cartState'
 
 function App() {
   const location = useLocation()
 
+
+
   return (
     <ThemeProvider>
-      <div className=' min-h-screen w-full'>
+      <div className=' w-full'>
         <Routes location={location} key={location.key}>
           <Route path='/' element={<Home />} />
           <Route path='login' element={<LogIn />} />

@@ -12,7 +12,7 @@ const MobileNavbar = () => {
   const navigate = useNavigate()
 
   return (
-    <div className='sm:hidden backdrop-blur-sm  fixed left-0 bottom-0 h-24 container flex justify-center'>
+    <div className='sm:hidden backdrop-blur-sm  fixed left-0 bottom-0 h-24 container flex justify-center z-50'>
       <div className='text-sm text-indigo-500 dark:text-indigo-500 bg-gray-50 bg-opacity-80 m-2 w-full flex justify-center items-center rounded-lg'>
         <ul className=' grid grid-cols-4 gap-1 justify-center items-center w-full h-full p-1'>
           {/* <ul className='flex justify-center items-center w-full gap-2'> */}
