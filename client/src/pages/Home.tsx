@@ -1,5 +1,5 @@
 import React from 'react'
-import { HomeProductsList } from '../components'
+// import { HomeProductsList } from '../components'
 import { NavLink, useNavigate } from 'react-router-dom'
 
 const Home = () => {
@@ -39,7 +39,7 @@ const Home = () => {
         </div>
       </div>
 
-      <HomeProductsList />
+      {/* <HomeProductsList /> */}
     </div>
   )
 }
