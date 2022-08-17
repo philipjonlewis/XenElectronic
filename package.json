@@ -8,8 +8,8 @@
     "server": "npm run --prefix ./server dev",
     "client": "npm run --prefix ./client dev",
     "dev": "concurrently npm:server npm:client",
-    "merge-from-client": "git checkout client -- client/ && git commit -m merged from client && git push",
-    "merge-from-server": "git checkout server -- server/ && git commit -m merged from server && git push"
+    "merge-from-client": "git checkout client -- client/ && git commit -m 'merged from client' && git push --all",
+    "merge-from-server": "git checkout server -- server/ && git commit -m 'merged from server' && git push --all"
   },
   "repository": {
     "type": "git",
