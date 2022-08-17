@@ -3,7 +3,11 @@ module.exports = {
   darkMode: 'class',
   content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      height: {
+        100: '26rem',
+      },
+    },
     container: {
       center: true,
     },
