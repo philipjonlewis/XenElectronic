@@ -8,7 +8,7 @@ export default function ThemeProvider({ children }: any) {
 
   return (
     <div id='theme-wrapper' className={`${theme}`}>
-      <div className='bg-gray-50 dark:bg-neutral-800 h-screen w-full'>{children}</div>
+      <div className='bg-gray-50 dark:bg-neutral-900 h-screen w-full'>{children}</div>
 
       <div className='absolute right-8 top-8'>
         <button
