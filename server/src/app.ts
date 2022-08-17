@@ -6,6 +6,12 @@ import cors from 'cors';
 import nocache from 'nocache';
 import morgan from 'morgan';
 import rateLimit from 'express-rate-limit';
+
+import userAuthRoutes from './routes/userAuthRoutes';
+import publicRoutes from './routes/publicRoutes';
+
+import { databaseConnection } from './database/dbConnection';
+import { productSeeder, deleteSeed } from './database/seed/dbProductSeeder';
 import { config } from './config';
 
 const app: Express = express();
@@ -56,6 +62,14 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   );
   next();
 });
+
+databaseConnection();
+// productSeeder();
+// deleteSeed();
+
+app.use(`${config.URL}/public`, publicRoutes);
+
+app.use(`${config.URL}/user`, userAuthRoutes);
 
 app.get('*', (req: Request, res: Response) => {
   res.send('Page does not exit');

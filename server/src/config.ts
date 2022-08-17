@@ -1,4 +1,4 @@
 export const config = {
   environment: 'development',
-  URL: '/prosperna_backend/api_v1',
+  URL: '/xenelectronic/api_v1',
 };
