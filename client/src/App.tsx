@@ -10,7 +10,7 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className='py-24 h-full w-full'>
+      <div className=' min-h-screen w-full'>
         <Routes location={location} key={location.key}>
           <Route path='/' element={<Home />} />
           <Route path='login' element={<LogIn />} />
