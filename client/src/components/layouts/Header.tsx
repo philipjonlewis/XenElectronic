@@ -4,7 +4,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 
 const Header = ({ theme, setTheme }) => {
   return (
-    <header className=' container h-24 flex justify-between items-center p-4 sticky sm:top-2 w-full  bg-slate-50 dark:bg-indigo-700  bg-opacity-60 sm:bg-opacity-100  backdrop-blur-sm sm:rounded-sm '>
+    <header className=' container h-24 flex justify-between items-center p-4 sticky top-2 sm:top-0 w-full  bg-slate-50 dark:bg-indigo-700  bg-opacity-80  backdrop-blur-sm sm:rounded-sm '>
       <NavLink to={'/'}>
         <div className='logo-container'>
           <div className='text-xl font-bold text-indigo-500 dark:text-white flex'>

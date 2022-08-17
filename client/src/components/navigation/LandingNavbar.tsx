@@ -13,7 +13,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 
 const LandingNavbar = () => {
   return (
-    <div className='text-sm sticky hidden sm:flex top-28 p-2 mt-4 mb-2 sm:rounded-sm bg-slate-50  justify-between items-center text-neutral-500 '>
+    <div className='text-sm sticky hidden sm:flex top-28 p-2 mt-4 mb-2 sm:rounded-sm bg-slate-50  justify-between items-center text-neutral-500 bg-opacity-80  backdrop-blur-sm '>
       <div className='flex gap-2'>
         <NavLink to={'/'}>
           <div className='flex flex-col justify-center items-center w-20 py-1 hover:text-yellow-500'>

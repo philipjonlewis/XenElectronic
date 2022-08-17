@@ -13,7 +13,7 @@ const Home = () => {
           <p className='text-lg text-neutral-500 mt-2'>
             XenElectronic is the most trusted e-commerce platform for your tech needs!
           </p>
-          <div className='w-fit'>
+          <div className='w-fit ml-auto sm:ml-0'>
             <NavLink to={'/products'}>
               <div className='mt-12 bg-indigo-500 hover:bg-neutral-500 w-fit py-4 px-8 rounded-full'>
                 <p className='text-white font-serif '>Shop Now!</p>
