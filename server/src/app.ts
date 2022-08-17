@@ -6,6 +6,9 @@ import cors from 'cors';
 import nocache from 'nocache';
 import morgan from 'morgan';
 import rateLimit from 'express-rate-limit';
+import userAuthRoutes from './routes/userAuthRoutes';
+import { databaseConnection } from './database/dbConnection';
+
 import { config } from './config';
 
 const app: Express = express();
@@ -56,6 +59,10 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   );
   next();
 });
+
+databaseConnection();
+
+app.use(`${config.URL}/user`, userAuthRoutes);
 
 app.get('*', (req: Request, res: Response) => {
   res.send('Page does not exit');
