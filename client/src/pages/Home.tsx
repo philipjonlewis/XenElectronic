@@ -14,11 +14,27 @@ const Home = () => {
             XenElectronic is the most trusted e-commerce platform for your tech needs!
           </p>
           <div className='w-fit ml-auto sm:ml-0'>
-            <NavLink to={'/products'}>
+            <div
+              onClick={() => {
+                fetch('http://192.168.0.25:4000/xenelectronic/api_v1/public/products')
+                  .then((res) => {
+                    console.log(res)
+                    return res.json()
+                  })
+                  .then((dat) => {
+                    console.log(dat)
+                  })
+              }}
+            >
               <div className='mt-12 bg-indigo-500 hover:bg-neutral-500 w-fit py-4 px-8 rounded-full'>
                 <p className='text-white font-serif '>Shop Now!</p>
               </div>
-            </NavLink>
+            </div>
+            {/* <NavLink to={'/products'}>
+              <div className='mt-12 bg-indigo-500 hover:bg-neutral-500 w-fit py-4 px-8 rounded-full'>
+                <p className='text-white font-serif '>Shop Now!</p>
+              </div>
+            </NavLink> */}
           </div>
         </div>
       </div>

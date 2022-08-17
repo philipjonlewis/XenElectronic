@@ -48,13 +48,14 @@ export const getAllProductsController = asyncHandler(
       const { category } = req.query;
       console.log(category);
 
-      const newCat = (category as string).toLowerCase().split(',');
+      const newCat =
+        category && (category as string)?.toLowerCase()?.split(',');
 
       const allProducts = (await ProductModel.find({
         ...(category
           ? {
               product_category: {
-                $all: newCat,
+                $all: newCat || [],
               },
             }
           : {}),
@@ -66,6 +67,7 @@ export const getAllProductsController = asyncHandler(
         .status(200)
         .json(await getAllProductsSuccessResponse(allProducts));
     } catch (error: any) {
+      console.log(error);
       throw new ErrorHandler(getAllControllerError);
     }
   }
