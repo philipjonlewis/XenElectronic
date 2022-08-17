@@ -1,11 +1,27 @@
+import React, { useEffect, useState } from 'react'
+import { Cart, Home, LogIn, Products, Settings, SignUp } from './pages'
+import ThemeProvider from './components/ThemeProvider'
+import { Routes, Route, useLocation } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 function App() {
+  const location = useLocation()
+
   return (
-    <div className="min-h-screen flex justify-center items-center">
-      <h1 className="text-xs font-bold text-blue-600">
-        Install & Setup Vite + React + Typescript + Tailwind CSS 3
-      </h1>
-    </div>
-  );
+    <ThemeProvider>
+      <div className=' min-h-screen w-full'>
+        <Routes location={location} key={location.key}>
+          <Route path='/' element={<Home />} />
+          <Route path='login' element={<LogIn />} />
+          <Route path='signup' element={<SignUp />} />
+          <Route path='cart' element={<Cart />} />
+          <Route path='products' element={<Products />} />
+          <Route path='settings' element={<Settings />} />
+        </Routes>
+      </div>
+    </ThemeProvider>
+  )
 }
 
-export default App;
+export default App
