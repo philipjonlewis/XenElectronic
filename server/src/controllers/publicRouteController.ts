@@ -47,8 +47,18 @@ export const getAllProductsController = asyncHandler(
       const { count, skip } = res.locals.query;
       const { category } = req.query;
       console.log(category);
+
+      const newCat = (category as string).toLowerCase().split(',');
+      console.log(newCat);
+
       const allProducts = (await ProductModel.find({
-        ...(category ? { product_category: category } : {}),
+        ...(category
+          ? {
+              product_category: {
+                $all: newCat,
+              },
+            }
+          : {}),
       })
         .limit(count || 0)
         .skip(skip || 0)) as any;
