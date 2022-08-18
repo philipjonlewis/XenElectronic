@@ -49,7 +49,7 @@ app.use(
   })
 );
 
-app.use((req: Request, res: Response, next: NextFunction) => {
+app.use((req, res, next: NextFunction) => {
   res.header('Content-Type', 'application/json;charset=UTF-8');
   res.header('Access-Control-Allow-Credentials', 'http://192.168.0.25:3000');
   // res.header('Access-Control-Allow-Credentials', process.env.FRONTEND_PORT);
