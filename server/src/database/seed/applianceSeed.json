@@ -1,0 +1,32 @@
+[
+  {
+    "product_name": "Mi Home (Mijia) Induction Cooker",
+    "product_brand": "XiaoMi",
+    "product_price": 59.89,
+    "product_description": "This stylish Induction Cooker helps you to prepare different type of foods. The New Cooker consists of two sections, which can be purchased separately. The most important component is induction cooker, which is placed in the lower section. This is able to offer 99 heat settings, which can be set by using side controls. You can then switch between the various modes, set the timer and other basic functions by using dedicated App.",
+    "product_category": "Appliance",
+    "product_tags": ["induction", "cooker"],
+    "product_image": "https://xiaomi-mi.com/uploads/CatalogueImage/pvm_mijia-induction-cooker-01_16967_1526568123.jpg",
+    "product_rating": 4
+  },
+  {
+    "product_name": "Dyson V8 Absolute Vaccum",
+    "product_brand": "Dyson",
+    "product_price": 399.59,
+    "product_description": "Lightweight and versatile, with up to 40 minutes of run time* and 2 power modes.",
+    "product_category": "Appliance",
+    "product_tags": ["laptop", "apple", "macbook"],
+    "product_image": "https://www.apple.com/v/macbook-pro-14-and-16/b/images/overview/hero/hero_intro_endframe__e6khcva4hkeq_large.jpg",
+    "product_rating": 3
+  },
+  {
+    "product_name": "iRobot i3 Vaccum Robot",
+    "product_brand": "Roomba",
+    "product_price": 179.99,
+    "product_description": "Powerful pick up and powerful performance Pulls in stubborn dirt and messes with a Premium 3-Stage Cleaning System and 10X the Power-Lifting Suction.* Control how you clean with the iRobot HOME app or your voice assistant.",
+    "product_category": "Appliance",
+    "product_tags": ["robot", "vaccum", "cleaner"],
+    "product_image": "https://i.ebayimg.com/images/g/cwUAAOSwOmthfGUI/s-l500.png",
+    "product_rating": 2
+  }
+]

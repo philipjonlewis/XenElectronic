@@ -1,0 +1,32 @@
+[
+  {
+    "product_name": "Xbox Series X",
+    "product_brand": "Microsoft",
+    "product_price": 499.99,
+    "product_description": "A split motherboard keeps the console’s internals evenly temperature controlled, allowing for an even higher output of power. ",
+    "product_category": "Gaming",
+    "product_tags": ["sony", "gaming", "console"],
+    "product_image": "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4mRni?ver=a707&w=270&h=222&q=90&m=6&p=48&f=jpg&o=f&aim=true",
+    "product_rating": 5
+  },
+  {
+    "product_name": "PlayStation 5",
+    "product_brand": "Sony",
+    "product_price": 189.99,
+    "product_description": "Experience lightning-fast loading with an ultra-high speed SSD, deeper immersion with support for haptic feedback1, adaptive triggers1 and 3D Audio*, and an all-new generation of incredible PlayStation games.",
+    "product_category": "Gaming",
+    "product_tags": ["sony", "gaming", "console"],
+    "product_image": "https://lzd-img-global.slatic.net/g/p/mdc/ca9a52add5fe542958af6b32838f06dd.jpg_2200x2200q80.jpg_.webp",
+    "product_rating": 4
+  },
+  {
+    "product_name": "Nintendo Switch",
+    "product_brand": "Nintendo",
+    "product_price": 349.99,
+    "product_description": "The Nintendo Switch – OLED Model and Nintendo Switch systems transform from home console to handheld, letting you play your favorite games at home or on the go. They include a dock for connecting to your TV, as well as removable Joy-Con™ controllers that you can share with a friend for two-player fun.",
+    "product_category": "Gaming",
+    "product_tags": ["nintendo", "gaming", "console"],
+    "product_image": "https://cdn.pocket-lint.com/r/s/1200x630/assets/images/140007-games-review-nintendo-switch-review-image1-lp6zy9awm0.jpg",
+    "product_rating": 2
+  }
+]

@@ -12,9 +12,17 @@ const productSchema = new Schema(
     //   ref: 'auth',
     //   required: [true, 'All products must have an owner'],
     // },
-    product_title: {
+    product_name: {
       type: String,
       required: [true, 'Product name is required'],
+    },
+    product_brand: {
+      type: String,
+      required: [true, 'Product brand is required'],
+    },
+    product_category: {
+      type: String,
+      required: [true, 'Product category is required'],
     },
     product_price: {
       type: Number,
@@ -28,18 +36,18 @@ const productSchema = new Schema(
       type: String,
       required: [true, 'Product price is required'],
     },
-    product_category: {
+    product_tags: {
       type: [
         {
           type: String,
         },
       ],
-      required: [true, 'Product category is required'],
+      required: [false, 'Product tags is required'],
       select: true,
     },
     product_rating: {
-      rate: Number,
-      count: Number,
+      type: Number,
+      required: [false, 'Product rating is required'],
     },
   },
   { versionKey: false }

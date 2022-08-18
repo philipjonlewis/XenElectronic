@@ -1,0 +1,32 @@
+[
+  {
+    "product_name": "iPhone 13",
+    "product_brand": "Apple",
+    "product_price": 959.89,
+    "product_description": "Apple's iPhone 13 features a ceramic shield front, Super Retina XDR display with True Tone and an A15 Bionic chip. The first design change users will notice is the smaller notch.",
+    "product_category": "Phone",
+    "product_tags": ["apple", "iPhone", "phone"],
+    "product_image": "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4mRni?ver=a707&w=270&h=222&q=90&m=6&p=48&f=jpg&o=f&aim=true",
+    "product_rating": 5
+  },
+  {
+    "product_name": "Galaxy S22 Ultra",
+    "product_brand": "Samsung",
+    "product_price": 745.99,
+    "product_description": "The Samsung Galaxy S22 Ultra is the headliner of the S22 series. It's the first S series phone to include Samsung's S Pen. Specifications are top-notch including 6.8-inch Dynamic AMOLED display with 120Hz refresh rate, Snapdragon 8 Gen 1 processor, 5000mAh battery, up to 12gigs of RAM, and 1TB of storage. In the camera department, a quad-camera setup is presented with two telephoto sensors.",
+    "product_category": "Phone",
+    "product_tags": ["samsung", "galaxy", "phone"],
+    "product_image": "https://m-cdn.phonearena.com/images/phones/83135-350/Samsung-Galaxy-S22-Ultra.webp",
+    "product_rating": 2
+  },
+  {
+    "product_name": "Nothing Phone",
+    "product_brand": "Nothing",
+    "product_price": 349.99,
+    "product_description": "Nothing",
+    "product_category": "Phone",
+    "product_tags": ["nothing", "phone"],
+    "product_image": "https://fdn.gsmarena.com/imgroot/news/22/07/nothing-phone-1-official/inline/-1200/gsmarena_006.jpg",
+    "product_rating": 1
+  }
+]

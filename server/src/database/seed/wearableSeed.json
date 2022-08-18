@@ -1,0 +1,32 @@
+[
+  {
+    "product_name": "Apple Watch Series 8",
+    "product_brand": "Apple",
+    "product_price": 359.99,
+    "product_description": "Big screen. Huge impact. The challenge was to create a bigger display while barely expanding the dimensions of the watch itself. To do so, the display was completely re‑engineered reducing the borders by 40 percent, allowing for more screen area than both Series 6 and Series 3. Now that’s something to smile about.",
+    "product_category": "Wearable",
+    "product_tags": ["apple", "watch"],
+    "product_image": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/MN6L3_VW_34FR+watch-45-stainless-silver-cell-7s_VW_34FR_WF_CO+watch-face-44-se-sportloop-pride_VW_34FR_WF_CO?wid=375&hei=356&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1651955698925%2C1652022774025%2C1651956727475",
+    "product_rating": 5
+  },
+  {
+    "product_name": "Galaxy Watch 5",
+    "product_brand": "Samsung",
+    "product_price": 189.99,
+    "product_description": "Features and specifications indicated have been verified as accurate at the time when the product was introduced to the market. However, these features and specifications may be updated, modified, or removed as required by local conditions. Such changes may be effected without prior notice to the public.",
+    "product_category": "Wearable",
+    "product_tags": ["samsung", "watch"],
+    "product_image": "https://www.apple.com/v/macbook-pro-14-and-16/b/images/overview/hero/hero_intro_endframe__e6khcva4hkeq_large.jpg",
+    "product_rating": 4
+  },
+  {
+    "product_name": "Fitbit Charge 5",
+    "product_brand": "Fitbit",
+    "product_price": 99.99,
+    "product_description": "Meet our most advanced fitness & health tracker with tools like high & low heart rate notifications, EDA Scan app for stress management and more. Plus, get a 6-month membership of Fitbit Premium** and optimize your routine with Daily Readiness Score..",
+    "product_category": "Wearable",
+    "product_tags": ["fitbit", "watch"],
+    "product_image": "https://www.fitbit.com/global/content/dam/fitbit/global/pdp/devices/charge-5/device-360/black/prod0.png",
+    "product_rating": 2
+  }
+]
