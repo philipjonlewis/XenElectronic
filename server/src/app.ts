@@ -12,12 +12,12 @@ import publicRoutes from './routes/publicRoutes';
 import { databaseConnection } from './database/dbConnection';
 import { productSeeder, deleteSeed } from './database/seed/dbProductSeeder';
 import { config } from './config';
+require('dotenv').config();
 
 const app: Express = express();
 
-const boolParser = require('express-query-boolean');
-require('dotenv').config();
 app.use(cors());
+const boolParser = require('express-query-boolean');
 app.disable('x-powered-by');
 
 app.set('trust proxy', 1);
@@ -52,10 +52,20 @@ app.use(nocache());
 app.use(function (req, res, next) {
   res.header('Content-Type', 'application/json;charset=UTF-8');
   // res.header("Access-Control-Allow-Credentials", "*");
-  res.header('Access-Control-Allow-Credentials', "https://xenelectronicbyphiliplewis.netlify.app/");
+  res.header(
+    'Access-Control-Allow-Credentials',
+    'https://xenelectronicbyphiliplewis.netlify.app/'
+  );
+  res.header('Access-Control-Allow-Credentials', '*');
   res.header('Access-Control-Allow-Headers', '*');
-  res.header('Access-Control-Allow-Origin', 'https://xenelectronicbyphiliplewis.netlify.app/');
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header(
+    'Access-Control-Allow-Origin',
+    'https://xenelectronicbyphiliplewis.netlify.app/'
+  );
   res.header('Access-Control-Allow-Methods', 'POST,GET,PATCH,DELETE');
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With');
+
   res.header(
     'Access-Control-Allow-Headers',
     'Origin, X-Requested-With, Content-Type, Accept'
