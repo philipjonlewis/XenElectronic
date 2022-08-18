@@ -21,12 +21,12 @@ const ProductPageProductList = () => {
   //   setProductList([])
   // }, [productCount])
 
-  useEffect(() => {
-    console.log(category)
-  }, [category])
+  // useEffect(() => {
+  //   console.log(category)
+  // }, [category])
 
   if (isLoading) {
-    refetch()
+    // refetch()
     return <div>Loading...</div>
   }
 
