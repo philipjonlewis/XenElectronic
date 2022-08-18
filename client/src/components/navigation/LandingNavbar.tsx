@@ -54,7 +54,7 @@ const LandingNavbar = () => {
             <p>Cart</p>
           </div>
         </NavLink>
-        <NavLink to={'/signup'}>
+        {/* <NavLink to={'/signup'}>
           <div className='nav-link'>
             <PencilAltIcon className='nav-icon' />
             <p>Sign Up</p>
@@ -65,7 +65,7 @@ const LandingNavbar = () => {
             <LoginIcon className='nav-icon' />
             <p>Log In</p>
           </div>
-        </NavLink>
+        </NavLink> */}
         {/* <NavLink to={'/logout'}>
           <div className='flex flex-col justify-center items-center w-20 py-1 '>
             <LogoutIcon className='nav-icon' />
