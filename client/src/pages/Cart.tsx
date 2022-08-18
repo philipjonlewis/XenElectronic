@@ -16,6 +16,7 @@ const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0)
 
   useEffect(() => {
+    console.log('hello')
     const storedItems = localStorage.getItem('cartItems') as any
     const itemList = JSON.parse(storedItems).map((prod: any) => prod._id)
 
@@ -33,6 +34,8 @@ const Cart = () => {
         console.log(total)
         return total.toFixed(2)
       })
+    } else {
+      setTotalPrice(0)
     }
   }, [cart])
 
@@ -42,13 +45,13 @@ const Cart = () => {
       return state.filter((prod: any) => prod._id !== _id)
     })
     dispatch(removeProductFromCart(_id))
-    toast.info(`removed the product from your Cart 🥺`)
+    toast.info(`Removed the product from your cart 🥺`)
     // }
   }
 
   return (
     <div className='flex justify-center items-start pb-24 sm:pb-0'>
-      <div className='bg-slate-50 shadow-sm w-fit p-2 rounded-lg pb-8'>
+      <div className='bg-slate-50 shadow-sm w-100 p-2 rounded-lg pb-8'>
         <div className='px-2 mb-4 pb-4 border-b-[1px]'>
           <div className='pt-4'>
             <p className=' font-extrabold text-3xl text-indigo-500'>Your Shopping Cart</p>
@@ -69,7 +72,7 @@ const Cart = () => {
             storedCartItems.map(({ _id, product_name, product_price, product_image }: any) => {
               return (
                 <React.Fragment key={_id}>
-                  <div className='relative flex w-96 bg-white rounded-lg overflow-hidden p-2 hover:shadow-md transition mb-2'>
+                  <div className='relative flex w-full bg-white rounded-lg overflow-hidden p-2 hover:shadow-md transition mb-2'>
                     <div
                       className='absolute top-2 right-2 bg-rose-50 p-0.5 shadow-sm hover:shadow-lg rounded-full cursor-pointer'
                       onClick={() => removeFromCart(_id)}
@@ -80,7 +83,7 @@ const Cart = () => {
                       <img
                         src={product_image}
                         alt=''
-                        className='object-cover w-24 h-24 rounded-lg'
+                        className='object-cover w-20 h-20 rounded-lg'
                       />
                     </div>
                     <div className='ml-2  '>

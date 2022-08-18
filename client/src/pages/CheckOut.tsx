@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const CheckOut = () => {
   const [totalPrice, setTotalPrice] = useState(0)
+  const [isPaying, setIsPaying] = useState(false)
+  const [isDonePaying, setIsDonePaying] = useState(false)
+  const navigate = useNavigate()
+
+  let tempScreen
 
   useEffect(() => {
     const storedItems = localStorage.getItem('cartItems') as any
@@ -18,9 +25,41 @@ const CheckOut = () => {
     }
   }, [])
 
+  const paymentApprovalHandler = () => {
+    setIsPaying(true)
+    setTimeout(() => {
+      setIsPaying(false)
+      setIsDonePaying(true)
+      toast.success(`Redirecting to the products page...`)
+
+      setTimeout(() => {
+        setIsDonePaying(false)
+        navigate('/products', { replace: true })
+      }, 3000)
+    }, 3000)
+  }
+
   return (
-    <div className='container flex justify-center '>
-      <div className='mx-2 sm:mx-0 bg-slate-50 w-96 p-4 rounded-lg flex flex-col justify-start items-center'>
+    <div className='container flex justify-center relative'>
+      {isPaying && (
+        <div className='absolute w-full h-full bg-indigo-500 bg-opacity-40 flex justify-center items-center'>
+          <div className='bg-indigo-700 flex flex-col justify-center items-center rounded-xl px-4 py-6'>
+            <img src='/rings.svg' alt='' className='w-16 h-16' />
+            <p className='text-xs text-white font-bold mt-4'>Processing Payment</p>
+          </div>
+        </div>
+      )}
+      {isDonePaying && (
+        <div className='absolute w-full h-full bg-red-500 bg-opacity-40 flex justify-center items-center'>
+          <div className='bg-red-700 flex flex-col justify-center items-center rounded-xl px-4 py-6'>
+            <p className='text-2xl'>🎉 🥳 </p>
+
+            <p className='text-xs text-white font-bold mt-4'>Thank you for shopping with us!</p>
+          </div>
+        </div>
+      )}
+
+      <div className='mx-2 sm:mx-0 bg-slate-50 w-100 p-4 rounded-lg flex flex-col justify-start items-center'>
         <div className='pt-4 w-full mb-4'>
           <p className=' font-extrabold text-3xl text-indigo-500 text-left pb-2'>Checkout</p>
           <p className='text-xs'>
@@ -74,6 +113,7 @@ const CheckOut = () => {
         <div
           className='bg-indigo-600 rounded-lg text-white text-center  w-full mb-2 flex justify-center
         p-4  hover:-translate-y-0.5 transition cursor-pointer hover:shadow-md hover:bg-indigo-700'
+          onClick={paymentApprovalHandler}
         >
           <p>Pay </p>
           <p className='pl-2'>$ {totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>

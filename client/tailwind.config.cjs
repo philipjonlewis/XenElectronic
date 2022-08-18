@@ -8,6 +8,10 @@ module.exports = {
         100: '26rem',
         120: '28rem',
       },
+      width: {
+        100: '26rem',
+        120: '28rem',
+      },
     },
     container: {
       center: true,
