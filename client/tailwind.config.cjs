@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       height: {
         100: '26rem',
+        120: '28rem',
       },
     },
     container: {

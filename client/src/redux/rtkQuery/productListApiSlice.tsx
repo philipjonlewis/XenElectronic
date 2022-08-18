@@ -15,7 +15,7 @@ export const productListApiSlice = createApi({
       Accept: 'application/json',
     },
   }),
-  tagTypes: ['Project'],
+  tagTypes: ['Product'],
   refetchOnMountOrArgChange: 1,
   refetchOnFocus: true,
   refetchOnReconnect: true,
@@ -28,18 +28,27 @@ export const productListApiSlice = createApi({
           }`
         },
         // transformResponse : res => res.sort((a,b) => b.phaseOrder - a.phaseOrder),
-        providesTags: ['Project'],
+        providesTags: ['Product'],
       }),
       addProduct: builder.mutation({
-        query: (project) => ({
+        query: (product) => ({
           url: '/project/create',
           method: 'POST',
-          body: project,
+          body: product,
         }),
-        invalidatesTags: ['Project'],
+        invalidatesTags: ['Product'],
+      }),
+      verifyCart: builder.mutation({
+        query: (productIdList) => ({
+          url: '/xenelectronic/api_v1/public/verifycart',
+          method: 'POST',
+          body: productIdList,
+        }),
+        invalidatesTags: ['Product'],
       }),
     }
   },
 })
 
-export const { useGetProductListQuery, useAddProductMutation } = productListApiSlice
+export const { useGetProductListQuery, useAddProductMutation, useVerifyCartMutation } =
+  productListApiSlice
