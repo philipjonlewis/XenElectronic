@@ -17,7 +17,7 @@ const app: Express = express();
 
 const boolParser = require('express-query-boolean');
 require('dotenv').config();
-
+app.use(cors());
 app.disable('x-powered-by');
 
 app.set('trust proxy', 1);
@@ -31,7 +31,6 @@ app.use(boolParser());
 app.use(helmet());
 app.use(nocache());
 
-// app.use(cors());
 // app.use(
 //   cors({
 //     origin: process.env.FRONTEND_PORT,
