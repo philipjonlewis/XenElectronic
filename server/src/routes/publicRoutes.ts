@@ -1,12 +1,13 @@
-import { Router } from "express";
+import { Router } from 'express';
 const router = Router();
-import asyncHandler from "../handlers/asyncHandler";
+import asyncHandler from '../handlers/asyncHandler';
 import {
   getAllUsersController,
   getAllProductsController,
-} from "../controllers/publicRouteController";
+  verifyCartController,
+} from '../controllers/publicRouteController';
 
-import { publicRouteQuerySanitizer } from "../middleware/sanitization/publicRouteSanitizer";
+import { publicRouteQuerySanitizer } from '../middleware/sanitization/publicRouteSanitizer';
 
 /**
  * * Router : Public Route
@@ -22,18 +23,20 @@ import { publicRouteQuerySanitizer } from "../middleware/sanitization/publicRout
 // Both routes will have the query params sanitizer to prevent parameter pollution
 router.use(publicRouteQuerySanitizer);
 
-router.route("/users").get([
+router.route('/users').get([
   // ! Route : http://localhost:4000/api_v1/public/users?count=0&skip=0
   // * Description : API Endpoint for getting all users
   // ! Optional query parameter for productId to get just one product
   getAllUsersController,
 ]);
 
-router.route("/products").get([
+router.route('/products').get([
   // ! Route : http://localhost:4000/api_v1/public/products?count=0&skip=0
   // * Description : API Endpoint for getting all products
   // ! Optional query parameter for productId to get just one product
   getAllProductsController,
 ]);
+
+router.route('/verifycart').post([verifyCartController]);
 
 export default router;

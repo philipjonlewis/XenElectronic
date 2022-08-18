@@ -18,6 +18,7 @@ export interface TypedPublicAllProductsRequestBody<T = {}> extends Request {
 }
 
 export interface TypedPublicAllProductsResponseBody extends Response {
+  [x: string]: any;
   locals: {
     query: {
       count?: number;
