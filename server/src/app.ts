@@ -60,7 +60,7 @@ app.use((req, res, next: NextFunction) => {
 });
 
 databaseConnection();
-productSeeder();
+// productSeeder();
 // deleteSeed();
 
 app.use(`${config.URL}/public`, publicRoutes);
