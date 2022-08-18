@@ -33,7 +33,7 @@ app.use(nocache());
 
 app.use(
   cors({
-    origin: '*',
+    origin: process.env.FRONTEND_PORT,
     // origin: config.frontendPort,
     methods: ['GET', 'POST', 'PATCH', 'DELETE'],
     credentials: true,
@@ -51,7 +51,7 @@ app.use(
 
 app.use((req, res, next: NextFunction) => {
   res.header('Content-Type', 'application/json;charset=UTF-8');
-  res.header('Access-Control-Allow-Credentials', '*');
+  res.header('Access-Control-Allow-Credentials', process.env.FRONTEND_PORT);
   // res.header('Access-Control-Allow-Credentials', config.frontendPort);
   res.header('Access-Control-Allow-Credentials', 'true');
   res.header(
