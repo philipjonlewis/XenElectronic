@@ -18,18 +18,32 @@ function App() {
   // }, [cart])
 
   return (
-    <ThemeProvider>
-      <div className=' w-full'>
-        <Routes location={location} key={location.key}>
-          <Route path='/' element={<Home />} />
-          <Route path='login' element={<LogIn />} />
-          <Route path='signup' element={<SignUp />} />
-          <Route path='cart' element={<Cart />} />
-          <Route path='products' element={<Products />} />
-          <Route path='settings' element={<Settings />} />
-        </Routes>
-      </div>
-    </ThemeProvider>
+    <>
+      <ToastContainer
+        position='top-center'
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme='dark'
+      />
+      <ThemeProvider>
+        <div className=' w-full'>
+          <Routes location={location} key={location.key}>
+            <Route path='/' element={<Home />} />
+            <Route path='login' element={<LogIn />} />
+            <Route path='signup' element={<SignUp />} />
+            <Route path='cart' element={<Cart />} />
+            <Route path='products' element={<Products />} />
+            <Route path='settings' element={<Settings />} />
+          </Routes>
+        </div>
+      </ThemeProvider>
+    </>
   )
 }
 

@@ -26,7 +26,11 @@ const Cart = () => {
         storedCartItems?.length >= 1 &&
         storedCartItems.map((listItem) => {
           console.log(listItem)
-          return <div>{listItem.product_title}</div>
+          return (
+            <React.Fragment key={listItem._id}>
+              <div>{listItem.product_name}</div>
+            </React.Fragment>
+          )
         })}
     </div>
   )

@@ -1,23 +1,43 @@
-import React, { FunctionComponent } from 'react'
+import React, { useState, useEffect, FunctionComponent } from 'react'
 import { ShoppingCartIcon, HeartIcon } from '@heroicons/react/outline'
 import { StarIcon } from '@heroicons/react/solid'
 import { useSelector, useDispatch } from 'react-redux'
-import { getProductsFromCart, addProductToCart } from '../../redux/cartState'
-
-const ProductCard = ({ product }) => {
+import { getProductsFromCart, addProductToCart, removeProductFromCart } from '../../redux/cartState'
+import { toast } from 'react-toastify'
+const ProductCard = ({ product }: any) => {
+  const dispatch = useDispatch()
   const { product_name, product_price, product_image, product_rating } = product
 
   const cart = useSelector((state: any) => state.cart)
-  const dispatch = useDispatch()
 
-  // console.log(cart)
+  const [isAddedToCart, setIsAddedToCart] = useState(false)
+
+  useEffect(() => {
+    const fromStorage = localStorage.getItem('cartItems') as any
+    const parsedFromStorage = JSON.parse(fromStorage)
+
+    if (parsedFromStorage && parsedFromStorage.length >= 1) {
+      const isExisting = parsedFromStorage.some((prod) => prod._id == product._id)
+      setIsAddedToCart(isExisting)
+    }
+  }, [])
 
   const addToCartHandler = () => {
-    dispatch(addProductToCart(product))
+    console.log(isAddedToCart)
+    if (!isAddedToCart) {
+      toast.success(`added ${product.product_name.substring(0, 8)} to Cart 😍`)
+      dispatch(addProductToCart(product))
+      setIsAddedToCart(true)
+    } else {
+      toast.info(`removed ${product.product_name.substring(0, 8)} from Cart 🥺`)
+
+      dispatch(removeProductFromCart(product._id))
+      setIsAddedToCart(false)
+    }
   }
 
   return (
-    <div className='bg-slate-50 h-100 rounded-lg p-2 shadow-sm relative flex flex-col'>
+    <div className='bg-slate-50 h-100 rounded-lg p-2  relative flex flex-col hover:shadow-sm'>
       <div className='absolute top-4 right-4 bg-indigo-50 hover:bg-rose-100 p-2 rounded-full cursor-pointer shadow-sm '>
         <HeartIcon className='w-6 h-6 text-indigo-500  hover:text-red-500' />
       </div>
@@ -46,16 +66,21 @@ const ProductCard = ({ product }) => {
           <p className='text-sm text-blue-500 font-bold'>{product_rating}</p>
         </div>
       </div>
-      <div
-        className='mt-auto bg-blue-500 w-fit ml-auto py-2 px-3 rounded-lg cursor-pointer shadow-sm'
+      <button
+        className={
+          isAddedToCart
+            ? 'mt-auto bg-gray-100 ml-auto py-2 px-3 rounded-lg cursor-pointer shadow-sm text-blue-400 w-fit transition hover:-translate-y-0.5'
+            : 'mt-auto bg-blue-500 ml-auto py-2 px-3 rounded-lg cursor-pointer shadow-sm  text-white w-fit transition hover:-translate-y-0.5'
+        }
         onClick={addToCartHandler}
+        // disabled={isAddedToCart}
       >
-        <div className='font-semibold text-sm text-white flex items-center'>
+        <div className='font-semibold text-sm flex justify-end items-center'>
           {' '}
-          <p> Add To Cart</p>
+          {isAddedToCart ? <p>Already In cart</p> : <p> Add To Cart</p>}
           <ShoppingCartIcon className='w-6 h-6 ml-2' />
         </div>
-      </div>
+      </button>
     </div>
   )
 }
