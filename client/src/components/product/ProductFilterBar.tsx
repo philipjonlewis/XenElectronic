@@ -17,13 +17,19 @@ const ProductFilterBar = ({ setProductQueryParams, productQueryParams }: any) =>
           <RefreshIcon className='h-5 w-5' />
           <p className='ml-2'>Reset Filter</p>
         </div>
-        <div className='ml-4 h-12 px-2 bg-rose-100 rounded-lg text-rose-500 flex items-center cursor-pointer hover:shadow-md'>
+        <div
+          className={
+            productQueryParams.category == ''
+              ? 'ml-4 h-12 px-2 bg-blue-100 rounded-lg text-blue-500 flex items-center cursor-pointer hover:shadow-md'
+              : 'ml-4 h-12 px-2 bg-rose-100 rounded-lg text-rose-500 flex items-center cursor-pointer hover:shadow-md'
+          }
+        >
           <FilterIcon className='h-5 w-5' />
           <select
             value={productQueryParams.category}
             name='categoryList'
             id='categoryList'
-            className=' bg-rose-100 rounded-lg text-rose-500 ml-2 cursor-pointer'
+            className=' bg-transparent rounded-lg  ml-2 cursor-pointer'
             onChange={(e) => {
               setProductQueryParams((state: any) => {
                 return { ...state, category: e.target.value }

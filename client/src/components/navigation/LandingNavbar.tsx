@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   HomeIcon,
   ShoppingCartIcon,
@@ -10,8 +10,21 @@ import {
   PencilAltIcon,
 } from '@heroicons/react/solid'
 import { NavLink, useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
 
 const LandingNavbar = () => {
+  const dispatch = useDispatch()
+  const cart = useSelector((state: any) => state.cart)
+
+  const [cartCount, setCartCount] = useState(0)
+
+  useEffect(() => {
+    // const storedItems = localStorage.getItem('cartItems') as any
+    // const itemList = JSON.parse(storedItems)
+    setCartCount(cart.length)
+    console.log(cart)
+  }, [cart])
+
   return (
     <nav className='landing-navbar-container'>
       <div className='sub-container'>
@@ -33,7 +46,10 @@ const LandingNavbar = () => {
       {/*  */}
       <div className='sub-container'>
         <NavLink to={'/cart'}>
-          <div className='nav-link'>
+          <div className={cartCount >= 1 ? 'nav-link text-red-400' : 'nav-link'}>
+            <p className='absolute -top-3 right-5 h-fit w-fit font-bold text-lg'>
+              {cartCount >= 1 && cartCount}
+            </p>
             <ShoppingCartIcon className='nav-icon' />
             <p>Cart</p>
           </div>
