@@ -29,7 +29,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme='dark'
+        // theme='dark'
       />
       <ThemeProvider>
         <div className=' w-full'>
