@@ -1,5 +1,8 @@
-import app from './app';
+require('dotenv').config();
 
-app.listen(process.env.PORT || 4000, () => {
-  console.log(`App listening on port ${process.env.PORT || 4000}!`);
+import app from './app';
+import { config } from './config';
+
+app.listen(config.port, () => {
+  console.log(`App listening on port ${config.port}!`);
 });

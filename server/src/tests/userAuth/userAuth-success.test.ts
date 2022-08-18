@@ -1,18 +1,18 @@
-import request from "supertest";
-import app from "../../app";
-import { config } from "../../config";
-import { describe, expect, test } from "vitest";
+import request from 'supertest';
+import app from '../../app';
+import { config } from '../../config';
+import { describe, expect, test } from 'vitest';
 import UserAuth from '../../database/model/userAuthDbModel';
 
 import {
   signedRefreshToken,
   signedAccessToken,
-} from "../../utils/cookieOptions";
+} from '../../utils/cookieOptions';
 
 import {
   userAuthSuccessTestUserCredentials as testUserCredentials,
   userAuthSuccessTestMail as testmail,
-} from "../mock/mockTestingCredentials";
+} from '../mock/mockTestingCredentials';
 
 import {
   userAuthSignUpSuccessResponse,
@@ -22,10 +22,10 @@ import {
   userAuthUpdateEmailSuccessResponse,
   userAuthUpdatePasswordSuccessResponse,
   userAuthDeleteUserSuccessResponse,
-} from "../../helpers/userAuthSuccessResponse";
+} from '../../helpers/userAuthSuccessResponse';
 
-describe("User Auth API - Success", () => {
-  test("Sign Up", async () => {
+describe('User Auth API - Success', () => {
+  test('Sign Up', async () => {
     const res = await request(app)
       .post(`${config.URL}/user/signup`)
       .send({
@@ -33,8 +33,8 @@ describe("User Auth API - Success", () => {
         password: testUserCredentials.password,
         passwordConfirmation: testUserCredentials.passwordConfirmation,
       })
-      .set("Accept", "application/json")
-      .expect("Content-Type", /json/)
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
       .expect(200);
     expect(res.body).toEqual(
       expect.objectContaining(
@@ -48,7 +48,7 @@ describe("User Auth API - Success", () => {
     await UserAuth.deleteOne({ email: testmail.signup });
   });
 
-  test("Log In", async () => {
+  test('Log In', async () => {
     const newUser = new UserAuth({
       email: testmail.login,
       password: testUserCredentials.password,
@@ -71,8 +71,8 @@ describe("User Auth API - Success", () => {
         email: testmail.login,
         password: testUserCredentials.password,
       })
-      .set("Accept", "application/json")
-      .expect("Content-Type", /json/)
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
       .expect(200);
 
     expect(await res.body).toEqual(
@@ -84,7 +84,7 @@ describe("User Auth API - Success", () => {
     await UserAuth.deleteOne({ email: testmail.login });
   });
 
-  test("Log Out", async () => {
+  test('Log Out', async () => {
     const newUser = new UserAuth({
       email: testmail.logout,
       password: testUserCredentials.password,
@@ -108,9 +108,9 @@ describe("User Auth API - Success", () => {
 
     const logoutRes = await request(app)
       .get(`${config.URL}/user/logout`)
-      .set("Cookie", [...loginRes.header["set-cookie"]])
-      .set("Accept", "application/json")
-      .expect("Content-Type", /json/)
+      .set('Cookie', [...loginRes.header['set-cookie']])
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
       .expect(200);
 
     expect(logoutRes.body).toEqual(
@@ -120,7 +120,7 @@ describe("User Auth API - Success", () => {
     await UserAuth.deleteOne({ email: testmail.logout });
   });
 
-  test("Verify User", async () => {
+  test('Verify User', async () => {
     const newUser = new UserAuth({
       email: testmail.verify,
       password: testUserCredentials.password,
@@ -144,9 +144,9 @@ describe("User Auth API - Success", () => {
 
     const verifyUser = await request(app)
       .get(`${config.URL}/user/verify`)
-      .set("Cookie", [...loginRes.header["set-cookie"]])
-      .set("Accept", "application/json")
-      .expect("Content-Type", /json/)
+      .set('Cookie', [...loginRes.header['set-cookie']])
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
       .expect(200);
 
     expect(verifyUser.body).toEqual(
@@ -156,7 +156,7 @@ describe("User Auth API - Success", () => {
     await UserAuth.deleteOne({ email: testmail.verify });
   });
 
-  test("Edit Email", async () => {
+  test('Edit Email', async () => {
     const newUser = new UserAuth({
       email: testmail.editemail,
       password: testUserCredentials.password,
@@ -185,9 +185,9 @@ describe("User Auth API - Success", () => {
         newEmail: testmail.editemailnew,
         password: testUserCredentials.password,
       })
-      .set("Cookie", [...loginRes.header["set-cookie"]])
-      .set("Accept", "application/json")
-      .expect("Content-Type", /json/)
+      .set('Cookie', [...loginRes.header['set-cookie']])
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
       .expect(200);
 
     expect(editEmail.body).toEqual(
@@ -204,7 +204,7 @@ describe("User Auth API - Success", () => {
     await UserAuth.deleteOne({ email: testmail.editemailnew });
   });
 
-  test("Edit Password", async () => {
+  test('Edit Password', async () => {
     const newUser = new UserAuth({
       email: testmail.editpassword,
       password: testUserCredentials.password,
@@ -233,9 +233,9 @@ describe("User Auth API - Success", () => {
         password: testUserCredentials.password,
         newPassword: testUserCredentials.newPassword,
       })
-      .set("Cookie", [...loginRes.header["set-cookie"]])
-      .set("Accept", "application/json")
-      .expect("Content-Type", /json/)
+      .set('Cookie', [...loginRes.header['set-cookie']])
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
       .expect(200);
 
     expect(editPassword.body).toEqual(
@@ -250,7 +250,7 @@ describe("User Auth API - Success", () => {
     await UserAuth.deleteOne({ email: testmail.editpassword });
   });
 
-  test("Delete User", async () => {
+  test('Delete User', async () => {
     const newUser = new UserAuth({
       email: testmail.deleteuser,
       password: testUserCredentials.password,
@@ -279,9 +279,9 @@ describe("User Auth API - Success", () => {
         password: testUserCredentials.password,
         passwordConfirmation: testUserCredentials.passwordConfirmation,
       })
-      .set("Cookie", [...loginRes.header["set-cookie"]])
-      .set("Accept", "application/json")
-      .expect("Content-Type", /json/)
+      .set('Cookie', [...loginRes.header['set-cookie']])
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
       .expect(200);
 
     expect(deleteUser.body).toEqual(

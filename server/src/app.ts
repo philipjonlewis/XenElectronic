@@ -6,7 +6,7 @@ import cors from 'cors';
 import nocache from 'nocache';
 import morgan from 'morgan';
 import rateLimit from 'express-rate-limit';
-
+import customErrorMiddleware from './middleware/custom/customErrorMiddleware';
 import userAuthRoutes from './routes/userAuthRoutes';
 import publicRoutes from './routes/publicRoutes';
 
@@ -34,7 +34,7 @@ app.use(nocache());
 
 app.use(
   cors({
-    origin: 'http://192.168.0.25:3000',
+    origin: config.frontendPort,
     methods: ['GET', 'POST', 'PATCH', 'DELETE'],
     credentials: true,
   })
@@ -51,8 +51,7 @@ app.use(
 
 app.use((req, res, next: NextFunction) => {
   res.header('Content-Type', 'application/json;charset=UTF-8');
-  res.header('Access-Control-Allow-Credentials', 'http://192.168.0.25:3000');
-  // res.header('Access-Control-Allow-Credentials', process.env.FRONTEND_PORT);
+  res.header('Access-Control-Allow-Credentials', config.frontendPort);
   res.header('Access-Control-Allow-Credentials', 'true');
   res.header(
     'Access-Control-Allow-Headers',
@@ -72,5 +71,7 @@ app.use(`${config.URL}/user`, userAuthRoutes);
 app.get('*', (req, res) => {
   res.send('Page does not exit');
 });
+
+app.use(customErrorMiddleware);
 
 export default app;
