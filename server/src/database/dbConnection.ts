@@ -14,7 +14,7 @@ const dbPort: any =
 
 const databaseConnection = async () => {
   try {
-    mongoose.connect(dbPort, mongooseOptions);
+    mongoose.connect(process.env.DB_PORT_PRODUCTION as string, mongooseOptions);
     console.log('Connected to the database');
   } catch (error) {
     console.log('Unable to Connect to the database', error);

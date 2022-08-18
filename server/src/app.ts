@@ -49,17 +49,14 @@ app.use(nocache());
 //   })
 // );
 
-app.use((req, res, next: NextFunction) => {
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  // or res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-  res.setHeader(
-    'Access-Control-Allow-Methods',
-    'GET,OPTIONS,PATCH,DELETE,POST,PUT'
-  );
-  res.setHeader(
+app.use(function (req, res, next) {
+  res.header('Content-Type', 'application/json;charset=UTF-8');
+  // res.header("Access-Control-Allow-Credentials", "*");
+  res.header('Access-Control-Allow-Credentials', process.env.FRONTEND_PORT);
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header(
     'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+    'Origin, X-Requested-With, Content-Type, Accept'
   );
   next();
 });
