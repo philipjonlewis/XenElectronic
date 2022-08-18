@@ -1,32 +1,26 @@
-import request from "supertest";
-import app from "../../app";
-import { config } from "../../config";
-import {
-  describe,
-  expect,
-  test,
-  afterEach,
-  beforeEach,
-} from "vitest";
-import UserAuth from "../../model/dbModel/userAuthDbModel";
+import request from 'supertest';
+import app from '../../app';
+import { config } from '../../config';
+import { describe, expect, test, afterEach, beforeEach } from 'vitest';
+import UserAuth from '../../database/model/userAuthDbModel';
 import {
   signedRefreshToken,
   signedAccessToken,
-} from "../../utils/cookieOptions";
+} from '../../utils/cookieOptions';
 
 const testUserCredentials = {
-  email: "userauthfailureedit@email.com",
+  email: 'userauthfailureedit@email.com',
 
-  password: "SamplePassword888!",
-  passwordConfirmation: "SamplePassword888!",
+  password: 'SamplePassword888!',
+  passwordConfirmation: 'SamplePassword888!',
 };
 
 import {
   userAuthValidationError,
   userAuthenticationError,
-} from "../../helpers/userAuthErrorResponse";
+} from '../../helpers/userAuthErrorResponse';
 
-describe("User Auth API - Failure - Edit", () => {
+describe('User Auth API - Failure - Edit', () => {
   beforeEach(async () => {
     await UserAuth.findOneAndDelete({
       email: testUserCredentials.email,
@@ -39,7 +33,7 @@ describe("User Auth API - Failure - Edit", () => {
     });
   });
 
-  test("Invalid New Email Format", async () => {
+  test('Invalid New Email Format', async () => {
     const newUser = new UserAuth({
       email: testUserCredentials.email,
       password: testUserCredentials.password,
@@ -67,12 +61,12 @@ describe("User Auth API - Failure - Edit", () => {
       .patch(`${config.URL}/user/update/email`)
       .send({
         email: testUserCredentials.email,
-        newEmail: "newuserauthfailureeditemail.com",
+        newEmail: 'newuserauthfailureeditemail.com',
         password: testUserCredentials.password,
       })
-      .set("Cookie", [...loginRes.header["set-cookie"]])
-      .set("Accept", "application/json")
-      .expect("Content-Type", /json/)
+      .set('Cookie', [...loginRes.header['set-cookie']])
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
       .expect(userAuthValidationError.error.code);
 
     expect(editEmail.body).toEqual(
@@ -80,7 +74,7 @@ describe("User Auth API - Failure - Edit", () => {
     );
   });
 
-  test("Invalid New Password Format", async () => {
+  test('Invalid New Password Format', async () => {
     const newUser = new UserAuth({
       email: testUserCredentials.email,
       password: testUserCredentials.password,
@@ -109,11 +103,11 @@ describe("User Auth API - Failure - Edit", () => {
       .send({
         email: testUserCredentials.email,
         password: testUserCredentials.password,
-        newPassword: "NewPassword732",
+        newPassword: 'NewPassword732',
       })
-      .set("Cookie", [...loginRes.header["set-cookie"]])
-      .set("Accept", "application/json")
-      .expect("Content-Type", /json/)
+      .set('Cookie', [...loginRes.header['set-cookie']])
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
       .expect(userAuthValidationError.error.code);
 
     expect(editEmail.body).toEqual(

@@ -2,7 +2,7 @@ import request from "supertest";
 import app from "../../app";
 import { config } from "../../config";
 import { describe, expect, test } from "vitest";
-import UserAuth from "../../model/dbModel/userAuthDbModel";
+import UserAuth from '../../database/model/userAuthDbModel';
 
 import {
   signedRefreshToken,

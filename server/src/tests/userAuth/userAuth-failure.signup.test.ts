@@ -8,7 +8,7 @@ import {
   afterEach,
   beforeEach,
 } from "vitest";
-import UserAuth from "../../model/dbModel/userAuthDbModel";
+import UserAuth from '../../database/model/userAuthDbModel';
 import {
   signedRefreshToken,
   signedAccessToken,
