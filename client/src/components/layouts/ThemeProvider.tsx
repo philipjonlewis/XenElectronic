@@ -2,9 +2,9 @@
 
 import React, { useState } from 'react'
 
-import Header from './layouts/Header'
-import MobileNavbar from './navigation/MobileNavbar'
-import LandingNavbar from './navigation/LandingNavbar'
+import Header from './Header'
+import MobileNavbar from '../navigation/MobileNavbar'
+import LandingNavbar from '../navigation/LandingNavbar'
 export default function ThemeProvider({ children }: any) {
   const [theme, setTheme] = useState(`light`)
 

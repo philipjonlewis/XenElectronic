@@ -8,7 +8,7 @@ import { useGetProductListQuery } from '../redux/rtkQuery/productListApiSlice'
 const Products = () => {
   return (
     <div>
-      <div className='mb-2'>
+      <div className='mb-4 mt-12'>
         <p className='p-2 my-2 text-3xl text-indigo-500 font-bold border-l-4 border-indigo-500'>
           All Products
         </p>

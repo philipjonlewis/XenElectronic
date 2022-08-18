@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Cart, Home, LogIn, Products, Settings, SignUp } from './pages'
-import ThemeProvider from './components/ThemeProvider'
+import ThemeProvider from './components/layouts/ThemeProvider'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
