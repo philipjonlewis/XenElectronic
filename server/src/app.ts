@@ -20,7 +20,7 @@ require('dotenv').config();
 
 app.disable('x-powered-by');
 
-app.set('trust proxy', true);
+app.set('trust proxy', 1);
 app.set('etag', false);
 
 app.use(morgan('dev'));
@@ -64,6 +64,10 @@ app.use((req, res, next: NextFunction) => {
 databaseConnection();
 // productSeeder();
 // deleteSeed();
+
+app.get('/', (req, res) => {
+  res.send('XenElectronic');
+});
 
 app.use(`${config.URL}/public`, publicRoutes);
 
