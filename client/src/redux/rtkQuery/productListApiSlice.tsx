@@ -7,6 +7,7 @@ export const productListApiSlice = createApi({
     baseUrl: `${import.meta.env.VITE_BACKEND_PORT}`,
     prepareHeaders: (headers, { getState }) => {
       headers.set('Access-Control-Allow-Origin', '*')
+      headers.set('Access-Control-Allow-credentials', 'true')
       return headers
     },
     credentials: 'include',
