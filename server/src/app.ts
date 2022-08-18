@@ -31,14 +31,15 @@ app.use(boolParser());
 app.use(helmet());
 app.use(nocache());
 
-app.use(
-  cors({
-    origin: process.env.FRONTEND_PORT,
-    // origin: config.frontendPort,
-    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
-    credentials: true,
-  })
-);
+app.use(cors());
+// app.use(
+//   cors({
+//     origin: process.env.FRONTEND_PORT,
+//     // origin: config.frontendPort,
+//     methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+//     credentials: true,
+//   })
+// );
 
 // app.use(
 //   rateLimit({

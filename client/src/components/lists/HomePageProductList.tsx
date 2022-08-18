@@ -7,7 +7,7 @@ const HomePageProductList = () => {
 
   useEffect(() => {
     const getProductData = async () => {
-      const res = await fetch('http://localhost:4000/xenelectronic/api_v1/public/products?count=5')
+      const res = await fetch(`${${import.meta.env.VITE_BACKEND_PORT}}/xenelectronic/api_v1/public/products?count=5`)
 
       const dat = await res.json()
       console.log(dat)
