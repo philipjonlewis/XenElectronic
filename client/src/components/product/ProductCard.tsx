@@ -38,9 +38,9 @@ const ProductCard = ({ product }: any) => {
 
   return (
     <div className='bg-slate-50 h-100 rounded-lg p-2  relative flex flex-col hover:shadow-sm'>
-      <div className='absolute top-4 right-4 bg-indigo-50 hover:bg-rose-100 p-2 rounded-full cursor-pointer shadow-sm '>
+      {/* <div className='absolute top-4 right-4 bg-indigo-50 hover:bg-rose-100 p-2 rounded-full cursor-pointer shadow-sm '>
         <HeartIcon className='w-6 h-6 text-indigo-500  hover:text-red-500' />
-      </div>
+      </div> */}
 
       <div className='bg-white w-full h-64 rounded-lg overflow-hidden flex justify-center items-center'>
         <img src={product_image} alt='' className='object-cover h-36' />
@@ -49,7 +49,9 @@ const ProductCard = ({ product }: any) => {
         <p className='font-bold text-xl'>{(product_name as string).substring(0, 16)}</p>
       </div>
       <div className=''>
-        <p className='text-rose-500 font-semibold text-lg'>$ {product_price}</p>
+        <p className='text-rose-500 font-semibold text-lg'>
+          $ {product_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+        </p>
       </div>
       <div className='flex '>
         <div className=' flex items-center'>

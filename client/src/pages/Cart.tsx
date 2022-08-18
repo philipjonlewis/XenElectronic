@@ -5,6 +5,7 @@ import { useVerifyCartMutation } from '../redux/rtkQuery/productListApiSlice'
 import { XCircleIcon } from '@heroicons/react/solid'
 import { toast } from 'react-toastify'
 import { isObjectLiteralExpression } from 'typescript'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 const Cart = () => {
   const cart = useSelector((state: any) => state.cart)
@@ -46,14 +47,18 @@ const Cart = () => {
   }
 
   return (
-    <div className='flex justify-center items-start'>
-      <div className='bg-slate-50 shadow-sm w-fit p-2 rounded-sm pb-8'>
+    <div className='flex justify-center items-start pb-24 sm:pb-0'>
+      <div className='bg-slate-50 shadow-sm w-fit p-2 rounded-lg pb-8'>
         <div className='px-2 mb-4 pb-4 border-b-[1px]'>
           <div className='pt-4'>
-            <p className='font-serif font-bold text-3xl text-indigo-500'>Shopping Cart</p>
+            <p className=' font-extrabold text-3xl text-indigo-500'>Your Shopping Cart</p>
           </div>
-          <div className=''>
-            <p className='text-xs mt-2 text-indigo-400'>Thank you for shopping with us!</p>
+          <div className='pt-2'>
+            <p className='text-xs'>
+              <span className='text-gray-300'>Products &gt; </span>{' '}
+              <span className='text-indigo-500 font-semibold'>Cart</span>
+              <span className='text-gray-300'> &gt; Checkout &gt; </span>{' '}
+            </p>
           </div>
         </div>
         <div className='h-100 mb-2 pb-5 overflow-scroll '>
@@ -96,12 +101,16 @@ const Cart = () => {
             <p className='font-bold text-neutral-700 text-2xl'>Total</p>
           </div>
           <div className='pl-2 mt-2'>
-            <p className=' w-fit text-rose-500 font-bold text-xl'>$ {totalPrice}</p>
+            <p className=' w-fit text-rose-500 font-bold text-xl'>
+              $ {totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+            </p>
           </div>
         </div>
-        <div className='bg-indigo-500 p-4 rounded-lg hover:-translate-y-0.5 transition cursor-pointer'>
-          <p className='text-center text-white font-bold'>Proceed To Checkout</p>
-        </div>
+        <NavLink to={'/checkout'}>
+          <div className='bg-indigo-500 p-4 rounded-lg hover:-translate-y-0.5 transition cursor-pointer hover:shadow-md hover:bg-indigo-600'>
+            <p className='text-center text-white font-bold'>Proceed To Checkout</p>
+          </div>
+        </NavLink>
       </div>
     </div>
   )

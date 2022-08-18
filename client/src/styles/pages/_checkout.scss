@@ -1,0 +1,23 @@
+.form-div {
+  @apply w-full mb-4;
+  label,
+  input {
+    @apply w-full py-2 pl-1;
+  }
+
+  label {
+    @apply text-xs;
+  }
+
+  input {
+    @apply bg-indigo-50 w-full py-2 pl-2 rounded-lg text-sm;
+
+    &:active,
+    :link,
+    :hover,
+    :focus,
+    :active {
+      @apply bg-indigo-100;
+    }
+  }
+}

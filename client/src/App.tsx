@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Cart, Home, LogIn, Products, Settings, SignUp } from './pages'
+import { Cart, Home, LogIn, Products, Settings, SignUp, CheckOut } from './pages'
 import ThemeProvider from './components/layouts/ThemeProvider'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
@@ -40,6 +40,7 @@ function App() {
             <Route path='cart' element={<Cart />} />
             <Route path='products' element={<Products />} />
             <Route path='settings' element={<Settings />} />
+            <Route path='checkout' element={<CheckOut />} />
           </Routes>
         </div>
       </ThemeProvider>

@@ -12,7 +12,6 @@ const Products = () => {
     const fromStorage = localStorage.getItem('cartItems') as any
     const parsedFromStorage = JSON.parse(fromStorage)
 
-    console.log('parsed', parsedFromStorage)
     if (parsedFromStorage && parsedFromStorage.length >= 1) {
       dispatch(addLocalStorageToCart(parsedFromStorage))
     }
@@ -21,7 +20,7 @@ const Products = () => {
   return (
     <div>
       <div className='mb-4 mt-12'>
-        <p className='p-2 my-2 text-3xl text-indigo-500 font-bold border-l-4 border-indigo-500'>
+        <p className='p-2 my-2 text-3xl text-indigo-500 font-bold border-l-4 border-indigo-500 mx-2 sm:mx-0'>
           All Products
         </p>
       </div>

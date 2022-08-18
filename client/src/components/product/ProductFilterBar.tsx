@@ -5,9 +5,9 @@ import { useGetProductListQuery } from '../../redux/rtkQuery/productListApiSlice
 const ProductFilterBar = ({ setProductQueryParams, productQueryParams }: any) => {
   return (
     <>
-      <div className='my-4 py-4 border-b-[1px] flex justify-start items-center'>
+      <div className='my-4 py-4 border-b-[1px] flex justify-start items-center container mx-2 sm:mx-0'>
         <div
-          className='flex justify-start items-center h-12 px-2 bg-indigo-100 text-indigo-500 w-fit rounded-lg cursor-pointer'
+          className='flex justify-start items-center h-12 px-2 bg-indigo-100 text-indigo-500 w-fit rounded-lg cursor-pointer hover:shadow-md'
           onClick={() => {
             setProductQueryParams((state: any) => {
               return { ...state, category: '' }
@@ -17,13 +17,13 @@ const ProductFilterBar = ({ setProductQueryParams, productQueryParams }: any) =>
           <RefreshIcon className='h-5 w-5' />
           <p className='ml-2'>Reset Filter</p>
         </div>
-        <div className='ml-4 h-12 px-2 bg-rose-100 rounded-lg text-rose-500 flex items-center'>
+        <div className='ml-4 h-12 px-2 bg-rose-100 rounded-lg text-rose-500 flex items-center cursor-pointer hover:shadow-md'>
           <FilterIcon className='h-5 w-5' />
           <select
             value={productQueryParams.category}
             name='categoryList'
             id='categoryList'
-            className=' bg-rose-100 rounded-lg text-rose-500 ml-2'
+            className=' bg-rose-100 rounded-lg text-rose-500 ml-2 cursor-pointer'
             onChange={(e) => {
               setProductQueryParams((state: any) => {
                 return { ...state, category: e.target.value }
