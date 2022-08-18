@@ -31,7 +31,7 @@ app.use(boolParser());
 app.use(helmet());
 app.use(nocache());
 
-app.use(cors());
+// app.use(cors());
 // app.use(
 //   cors({
 //     origin: process.env.FRONTEND_PORT,
@@ -52,7 +52,10 @@ app.use(cors());
 
 app.use((req, res, next: NextFunction) => {
   res.header('Content-Type', 'application/json;charset=UTF-8');
-  res.header('Access-Control-Allow-Credentials', process.env.FRONTEND_PORT);
+  res.header(
+    'Access-Control-Allow-Credentials',
+    process.env.FRONTEND_PORT || '*'
+  );
   // res.header('Access-Control-Allow-Credentials', config.frontendPort);
   res.header('Access-Control-Allow-Credentials', 'true');
   res.header(
