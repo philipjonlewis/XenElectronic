@@ -1,11 +1,13 @@
 import { Router } from 'express';
 const router = Router();
+const ObjectId = require('mongoose').Types.ObjectId;
 import asyncHandler from '../handlers/asyncHandler';
 import {
   getAllUsersController,
   getAllProductsController,
-  verifyCartController,
 } from '../controllers/publicRouteController';
+
+import ProductModel from '../database/model/productDbModel';
 
 import { publicRouteQuerySanitizer } from '../middleware/sanitization/publicRouteSanitizer';
 
@@ -37,6 +39,13 @@ router.route('/products').get([
   getAllProductsController,
 ]);
 
-router.route('/verifycart').post([verifyCartController]);
+router.route('/verifycart').post(async (req, res, next) => {
+  const cleanedData = req.body.filter((id: any) => ObjectId.isValid(id));
+
+  const products = await ProductModel.find({ _id: { $in: cleanedData } });
+
+  console.log(products);
+  res.send(products);
+});
 
 export default router;

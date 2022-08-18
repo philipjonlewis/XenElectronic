@@ -69,7 +69,7 @@ app.use(`${config.URL}/public`, publicRoutes);
 
 app.use(`${config.URL}/user`, userAuthRoutes);
 
-app.get('*', (req: Request, res: Response) => {
+app.get('*', (req, res) => {
   res.send('Page does not exit');
 });
 
