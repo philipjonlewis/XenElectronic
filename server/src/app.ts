@@ -7,7 +7,6 @@ import nocache from 'nocache';
 import morgan from 'morgan';
 import rateLimit from 'express-rate-limit';
 import customErrorMiddleware from './middleware/custom/customErrorMiddleware';
-import userAuthRoutes from './routes/userAuthRoutes';
 import publicRoutes from './routes/publicRoutes';
 
 import { databaseConnection } from './database/dbConnection';
@@ -65,8 +64,6 @@ databaseConnection();
 // deleteSeed();
 
 app.use(`${config.URL}/public`, publicRoutes);
-
-app.use(`${config.URL}/user`, userAuthRoutes);
 
 app.get('*', (req, res) => {
   res.send('Page does not exit');
