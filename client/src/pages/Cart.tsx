@@ -18,9 +18,9 @@ const Cart = () => {
   useEffect(() => {
     console.log('hello')
     const storedItems = localStorage.getItem('cartItems') as any
-    const itemList = JSON.parse(storedItems).map((prod: any) => prod._id)
+    const itemList = JSON.parse(storedItems)?.map((prod: any) => prod._id)
 
-    if (itemList?.length >= 1) {
+    if (itemList && itemList?.length >= 1) {
       verifyData(itemList).then((res) => {
         if (res?.data?.length >= 1) {
           setStoredCartitems(res.data)
