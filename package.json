@@ -6,7 +6,6 @@
   "scripts": {
     "test": "npm run --prefix ./server test && exit 0",
     "test:watch": "npm run --prefix ./server test:watch && exit 0",
-    "test:coverage": "npm run --prefix ./server test:coverage",
     "server-build": "npm run --prefix ./server build",
     "client-build": "npm run --prefix ./client build",
     "server": "npm run --prefix ./server dev",
@@ -18,8 +17,7 @@
     "url": "git+https://github.com/philipjonlewis/XenElectronic.git"
   },
   "pre-push": [
-    "test",
-    "test:coverage"
+    "test"
   ],
   "keywords": [],
   "author": "",
