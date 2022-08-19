@@ -4,17 +4,14 @@ export const activeProjectSlice = createSlice({
   name: 'cartContent',
   initialState: [],
   reducers: {
-    addProductToCart: (state, actions) => {
-      // console.log(actions.payload)
-      if (state.some((obj) => obj._id == actions.payload._id)) return
+    addProductToCart: (state: any, actions: any) => {
+      if (state.some((obj: any) => obj._id == actions.payload._id)) return
 
       const fromStorage = localStorage.getItem('cartItems') as any
       const parsedFromStorage = JSON.parse(fromStorage)
 
-      // console.log('parsed', parsedFromStorage)
-
       if (parsedFromStorage && parsedFromStorage.length >= 1) {
-        if (parsedFromStorage.some((obj) => obj._id == actions.payload._id)) return
+        if (parsedFromStorage.some((obj: any) => obj._id == actions.payload._id)) return
 
         parsedFromStorage.push(actions.payload)
         localStorage.setItem('cartItems', JSON.stringify(parsedFromStorage))
@@ -45,11 +42,20 @@ export const activeProjectSlice = createSlice({
 
       return [...newState]
     },
+    removeAllProductsFromCart: () => {
+      return []
+    },
   },
 })
 
 const { actions, reducer } = activeProjectSlice
 
-export const { addProductToCart, getProductsFromCart, addLocalStorageToCart,removeProductFromCart } = actions
+export const {
+  addProductToCart,
+  getProductsFromCart,
+  addLocalStorageToCart,
+  removeProductFromCart,
+  removeAllProductsFromCart,
+} = actions
 
 export default reducer

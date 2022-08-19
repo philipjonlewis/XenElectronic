@@ -1,19 +1,9 @@
 import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
 
-import { NavLink, useNavigate } from 'react-router-dom'
-import { HomePageProductList } from '../components'
-
-import { getProductsFromCart, addProductToCart } from '../redux/cartState'
+import { NavLink } from 'react-router-dom'
 import { useGetProductListQuery } from '../redux/rtkQuery/productListApiSlice'
 
 const Home = () => {
-  const { data, loading } = useGetProductListQuery(0) as any
-
-  useEffect(() => {
-    console.log(data)
-  }, [])
-
   return (
     <div className='home-container'>
       <div className='hero-image-container'>

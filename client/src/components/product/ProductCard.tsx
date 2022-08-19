@@ -1,15 +1,14 @@
-import React, { useState, useEffect, FunctionComponent } from 'react'
-import { ShoppingCartIcon, HeartIcon } from '@heroicons/react/outline'
+import React, { useState, useEffect } from 'react'
+import { ShoppingCartIcon } from '@heroicons/react/outline'
 import { StarIcon } from '@heroicons/react/solid'
 import { useSelector, useDispatch } from 'react-redux'
-import { getProductsFromCart, addProductToCart, removeProductFromCart } from '../../redux/cartState'
+import {  addProductToCart, removeProductFromCart } from '../../redux/cartState'
 import { toast } from 'react-toastify'
+
 const ProductCard = ({ product }: any) => {
   const dispatch = useDispatch()
+
   const { product_name, product_price, product_image, product_rating } = product
-
-  const cart = useSelector((state: any) => state.cart)
-
   const [isAddedToCart, setIsAddedToCart] = useState(false)
 
   useEffect(() => {
@@ -38,10 +37,6 @@ const ProductCard = ({ product }: any) => {
 
   return (
     <div className='bg-slate-50 h-100 rounded-lg p-2  relative flex flex-col hover:shadow-sm'>
-      {/* <div className='absolute top-4 right-4 bg-indigo-50 hover:bg-rose-100 p-2 rounded-full cursor-pointer shadow-sm '>
-        <HeartIcon className='w-6 h-6 text-indigo-500  hover:text-red-500' />
-      </div> */}
-
       <div className='bg-white w-full h-64 rounded-lg overflow-hidden flex justify-center items-center'>
         <img src={product_image} alt='' className='object-cover h-36' />
       </div>
@@ -75,7 +70,6 @@ const ProductCard = ({ product }: any) => {
             : 'mt-auto bg-blue-500 ml-auto py-2 px-3 rounded-lg cursor-pointer shadow-sm  text-white w-fit transition hover:-translate-y-0.5'
         }
         onClick={addToCartHandler}
-        // disabled={isAddedToCart}
       >
         <div className='font-semibold text-sm flex justify-end items-center'>
           {' '}

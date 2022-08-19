@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-
+import { useSelector, useDispatch } from 'react-redux'
+import { removeAllProductsFromCart } from '../redux/cartState'
 const CheckOut = () => {
+  const dispatch = useDispatch()
+
   const [totalPrice, setTotalPrice] = useState(0)
   const [isPaying, setIsPaying] = useState(false)
   const [isDonePaying, setIsDonePaying] = useState(false)
   const navigate = useNavigate()
 
-  let tempScreen
-
   useEffect(() => {
+    toast.info('You can proceed without any information')
+
     const storedItems = localStorage.getItem('cartItems') as any
     const itemList = JSON.parse(storedItems)
 
@@ -26,6 +29,8 @@ const CheckOut = () => {
   }, [])
 
   const paymentApprovalHandler = () => {
+    localStorage.removeItem('cartItems')
+    dispatch(removeAllProductsFromCart())
     setIsPaying(true)
     setTimeout(() => {
       setIsPaying(false)

@@ -1,7 +1,7 @@
 // ThemeProvider.js
 
 import React, { useState } from 'react'
-
+import Footer from './Footer'
 import Header from './Header'
 import MobileNavbar from '../navigation/MobileNavbar'
 import LandingNavbar from '../navigation/LandingNavbar'
@@ -15,6 +15,7 @@ export default function ThemeProvider({ children }: any) {
           <Header setTheme={setTheme} theme={theme} />
           <LandingNavbar />
           {children}
+          <Footer />
           <MobileNavbar />
         </div>
       </div>

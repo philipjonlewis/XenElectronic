@@ -1,5 +1,5 @@
 .home-container {
-  @apply w-full flex flex-col;
+  @apply w-full flex flex-col min-h-screen;
 
   .hero-image-container {
     @apply w-full h-48 overflow-hidden rounded-sm mt-2;
@@ -17,11 +17,11 @@
     }
 
     p:nth-of-type(2) {
-      @apply text-lg text-neutral-500 mt-2;
+      @apply text-lg text-neutral-500 mt-1;
     }
 
     .cta-container {
-      @apply mt-12 bg-indigo-500 hover:bg-rose-500 w-fit py-4 px-8 rounded-full;
+      @apply mt-8 bg-indigo-500 hover:bg-rose-500 w-fit py-4 px-8 rounded-full;
 
       p {
         @apply text-white font-serif font-bold text-base;

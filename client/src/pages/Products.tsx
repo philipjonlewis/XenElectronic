@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import { ProductPageProductList } from '../components'
-import { getProductsFromCart, addProductToCart } from '../redux/cartState'
-import { useGetProductListQuery } from '../redux/rtkQuery/productListApiSlice'
 import { addLocalStorageToCart } from '../redux/cartState'
 const Products = () => {
   const dispatch = useDispatch()

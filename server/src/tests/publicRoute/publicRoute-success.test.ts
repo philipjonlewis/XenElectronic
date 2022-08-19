@@ -5,7 +5,6 @@ import { vi, beforeEach, describe, expect, test } from 'vitest';
 import { NextFunction, Request, Response } from 'express';
 
 import { getAllProductsSuccessResponse } from '../../helpers/publicRouteSuccessResponse';
-import { getAllProductsController } from '../../controllers/publicRouteController';
 import { getAllSanitizationError } from '../../helpers/publicRoutesErrorResponse';
 
 describe('Public Route API - Success', () => {

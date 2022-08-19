@@ -1,22 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getProductsFromCart, addProductToCart, removeProductFromCart } from '../redux/cartState'
+import { removeProductFromCart } from '../redux/cartState'
 import { useVerifyCartMutation } from '../redux/rtkQuery/productListApiSlice'
 import { XCircleIcon } from '@heroicons/react/solid'
 import { toast } from 'react-toastify'
-import { isObjectLiteralExpression } from 'typescript'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Cart = () => {
   const cart = useSelector((state: any) => state.cart)
   const dispatch = useDispatch()
-  const [verifyData] = useVerifyCartMutation() as any
 
+  const [verifyData] = useVerifyCartMutation() as any
   const [storedCartItems, setStoredCartitems] = useState([])
   const [totalPrice, setTotalPrice] = useState(0)
 
   useEffect(() => {
-    console.log('hello')
     const storedItems = localStorage.getItem('cartItems') as any
     const itemList = JSON.parse(storedItems)?.map((prod: any) => prod._id)
 
@@ -35,12 +33,12 @@ const Cart = () => {
         return total.toFixed(2)
       })
     } else {
+      toast.info('You can proceed without anything in the cart')
       setTotalPrice(0)
     }
   }, [cart])
 
   const removeFromCart = (_id: any) => {
-    // if (confirm('are you sure you want to remove this product?')) {
     setStoredCartitems((state) => {
       return state.filter((prod: any) => prod._id !== _id)
     })

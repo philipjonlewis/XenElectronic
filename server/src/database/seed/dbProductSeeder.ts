@@ -22,18 +22,19 @@ const wearableSeed = JSON.parse(
 );
 
 export const productSeeder = async () => {
-  await ProductModel.insertMany(
-    [
-      ...applianceSeed,
-      ...computerSeed,
-      ...gamingSeed,
-      ...phoneSeed,
-      ...wearableSeed,
-    ],
-    (err, docs) => {
-      console.log(err);
-    }
-  );
+  await ProductModel.deleteMany({});
+  console.log('Deleted Data');
+  if (await ProductModel.exists({})) {
+    return;
+  }
+
+  await ProductModel.insertMany([
+    ...applianceSeed,
+    ...computerSeed,
+    ...gamingSeed,
+    ...phoneSeed,
+    ...wearableSeed,
+  ]);
   //   console.log(data);
   console.log('Seeded Data');
 };
@@ -42,3 +43,5 @@ export const deleteSeed = async () => {
   await ProductModel.deleteMany({});
   console.log('Deleted Data');
 };
+
+// export const

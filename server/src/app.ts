@@ -1,5 +1,5 @@
 import express, { Express, Request, response, NextFunction } from 'express';
-
+import ProductModel from './database/model/productDbModel';
 import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
 import cors from 'cors';
@@ -8,9 +8,8 @@ import morgan from 'morgan';
 import rateLimit from 'express-rate-limit';
 import customErrorMiddleware from './middleware/custom/customErrorMiddleware';
 import publicRoutes from './routes/publicRoutes';
-
+import { productSeeder } from './database/seed/dbProductSeeder';
 import { databaseConnection } from './database/dbConnection';
-import { productSeeder, deleteSeed } from './database/seed/dbProductSeeder';
 import { config } from './config';
 
 const app: Express = express();
@@ -26,7 +25,7 @@ app.set('etag', false);
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cookieParser(process.env.WALKERS_SHORTBREAD));
+app.use(cookieParser(config.walkers));
 app.use(boolParser());
 app.use(helmet());
 app.use(nocache());
@@ -60,8 +59,8 @@ app.use((req, res, next: NextFunction) => {
 });
 
 databaseConnection();
-// productSeeder();
-// deleteSeed();
+
+productSeeder();
 
 app.use(`${config.URL}/public`, publicRoutes);
 
