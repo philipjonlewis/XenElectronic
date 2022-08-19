@@ -22,8 +22,6 @@ const wearableSeed = JSON.parse(
 );
 
 export const productSeeder = async () => {
-  await ProductModel.deleteMany({});
-  console.log('Deleted Data');
   if (await ProductModel.exists({})) {
     return;
   }
@@ -35,13 +33,10 @@ export const productSeeder = async () => {
     ...phoneSeed,
     ...wearableSeed,
   ]);
-  //   console.log(data);
-  console.log('Seeded Data');
 };
 
 export const deleteSeed = async () => {
   await ProductModel.deleteMany({});
-  console.log('Deleted Data');
 };
 
 // export const

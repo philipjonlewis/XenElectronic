@@ -1,4 +1,8 @@
-import type { GetAllUsers, GetAllProducts } from '../types/PublicRouteTypes';
+import type {
+  GetAllUsers,
+  GetAllProducts,
+  VerifyCartProducts,
+} from '../types/PublicRouteTypes';
 
 export const getAllUsersSuccessResponse = async (allUsers: GetAllUsers[]) => {
   return {
@@ -14,6 +18,16 @@ export const getAllProductsSuccessResponse = async (
   return {
     success: true,
     message: 'All Products',
+    payload: allProducts,
+  };
+};
+
+export const verifyCartProductsSuccesResponse = async (
+  allProducts: VerifyCartProducts[] | any[]
+) => {
+  return {
+    success: true,
+    message: 'Verified Cart Products',
     payload: allProducts,
   };
 };

@@ -8,7 +8,6 @@ import morgan from 'morgan';
 import rateLimit from 'express-rate-limit';
 import customErrorMiddleware from './middleware/custom/customErrorMiddleware';
 import publicRoutes from './routes/publicRoutes';
-import { productSeeder } from './database/seed/dbProductSeeder';
 import { databaseConnection } from './database/dbConnection';
 import { config } from './config';
 
@@ -60,7 +59,6 @@ app.use((req, res, next: NextFunction) => {
 
 databaseConnection();
 
-productSeeder();
 
 app.use(`${config.URL}/public`, publicRoutes);
 

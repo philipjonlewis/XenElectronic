@@ -22,7 +22,6 @@ const ProductCard = ({ product }: any) => {
   }, [])
 
   const addToCartHandler = () => {
-    console.log(isAddedToCart)
     if (!isAddedToCart) {
       toast.success(`added ${product.product_name.substring(0, 8)} to Cart 😍`)
       dispatch(addProductToCart(product))

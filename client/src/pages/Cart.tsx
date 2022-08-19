@@ -29,7 +29,6 @@ const Cart = () => {
         const total = JSON.parse(storedItems).reduce(function (acc, obj) {
           return acc + obj.product_price
         }, 0)
-        console.log(total)
         return total.toFixed(2)
       })
     } else {

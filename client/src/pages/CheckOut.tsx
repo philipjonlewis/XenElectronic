@@ -22,7 +22,6 @@ const CheckOut = () => {
         const total = itemList.reduce(function (acc, obj) {
           return acc + obj.product_price
         }, 0)
-        console.log(total)
         return total.toFixed(2)
       })
     }

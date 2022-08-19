@@ -4,16 +4,24 @@ import Express, {
   RequestHandler,
   NextFunction,
 } from 'express';
+const ObjectId = require('mongoose').Types.ObjectId;
+
 import asyncHandler from '../handlers/asyncHandler';
 import ErrorHandler from '../middleware/custom/modifiedErrorHandler';
 import ProductModel from '../database/model/productDbModel';
-import { getAllControllerError } from '../helpers/publicRoutesErrorResponse';
+import {
+  getAllControllerError,
+  verifyCartControllerError,
+} from '../helpers/publicRoutesErrorResponse';
 import type {
   TypedPublicAllProductsRequestBody,
   TypedPublicAllProductsResponseBody,
 } from '../types/PublicRouteTypes';
 
-import { getAllProductsSuccessResponse } from '../helpers/publicRouteSuccessResponse';
+import {
+  getAllProductsSuccessResponse,
+  verifyCartProductsSuccesResponse,
+} from '../helpers/publicRouteSuccessResponse';
 
 export const getAllProductsController = asyncHandler(
   async (
@@ -21,12 +29,7 @@ export const getAllProductsController = asyncHandler(
     res: TypedPublicAllProductsResponseBody
   ) => {
     try {
-      const { count, skip } = res.locals.query;
-      const { category } = req.query;
-      console.log(category);
-      console.log(req.query);
-      const newCat =
-        category && (category as string)?.toLowerCase()?.split(',');
+      const { count, skip, category } = res.locals.query;
 
       const allProducts = (await ProductModel.find({
         ...(category
@@ -42,8 +45,23 @@ export const getAllProductsController = asyncHandler(
         .status(200)
         .json(await getAllProductsSuccessResponse(allProducts));
     } catch (error: any) {
-      console.log(error);
       throw new ErrorHandler(getAllControllerError);
+    }
+  }
+) as RequestHandler;
+
+export const verifyCartController = asyncHandler(
+  async (req: Request, res: Response) => {
+    try {
+      const cleanedData = req.body.filter((id: any) => ObjectId.isValid(id));
+
+      const products = await ProductModel.find({ _id: { $in: cleanedData } });
+
+      return res
+        .status(200)
+        .json(await verifyCartProductsSuccesResponse(products));
+    } catch (error: any) {
+      throw new ErrorHandler(verifyCartControllerError);
     }
   }
 ) as RequestHandler;

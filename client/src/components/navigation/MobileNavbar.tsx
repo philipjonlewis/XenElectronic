@@ -15,7 +15,6 @@ const MobileNavbar = () => {
 
   useEffect(() => {
     setCartCount(cart.length)
-    console.log(cart)
   }, [cart])
 
   return (
