@@ -31,14 +31,14 @@ app.use(boolParser());
 app.use(helmet());
 app.use(nocache());
 
-// app.use(
-//   cors({
-//     origin: process.env.FRONTEND_PORT,
-//     // origin: config.frontendPort,
-//     methods: ['GET', 'POST', 'PATCH', 'DELETE'],
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    // origin: '*',
+    origin: config.frontendPort,
+    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+    credentials: true,
+  })
+);
 
 // app.use(
 //   rateLimit({
@@ -52,20 +52,12 @@ app.use(nocache());
 app.use(function (req, res, next) {
   res.header('Content-Type', 'application/json;charset=UTF-8');
   // res.header("Access-Control-Allow-Credentials", "*");
-  res.header(
-    'Access-Control-Allow-Credentials',
-    'https://xenelectronicbyphiliplewis.netlify.app/'
-  );
-  res.header('Access-Control-Allow-Credentials', '*');
-  res.header('Access-Control-Allow-Headers', '*');
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header(
-    'Access-Control-Allow-Origin',
-    'https://xenelectronicbyphiliplewis.netlify.app/'
-  );
+
+  res.header('Access-Control-Allow-Credentials', config.frontendPort);
+  res.header('Access-Control-Allow-Headers', config.frontendPort);
+  res.header('Access-Control-Allow-Origin', config.frontendPort);
   res.header('Access-Control-Allow-Methods', 'POST,GET,PATCH,DELETE');
   res.header('Access-Control-Allow-Headers', 'X-Requested-With');
-
   res.header(
     'Access-Control-Allow-Headers',
     'Origin, X-Requested-With, Content-Type, Accept'

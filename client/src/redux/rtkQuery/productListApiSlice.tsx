@@ -6,8 +6,8 @@ export const productListApiSlice = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: `${import.meta.env.VITE_BACKEND_PORT}`,
     prepareHeaders: (headers, { getState }) => {
-      headers.set('Access-Control-Allow-Origin', '*')
-      headers.set('Access-Control-Allow-credentials', 'true')
+      headers.set('Access-Control-Allow-Origin', '*') 
+      // headers.set('Access-Control-Allow-credentials', 'true')
       return headers
     },
     credentials: 'include',
@@ -15,6 +15,7 @@ export const productListApiSlice = createApi({
       'Content-Type': 'application/json',
       Accept: 'application/json',
     },
+    mode: 'cors',
   }),
   tagTypes: ['Product'],
   refetchOnMountOrArgChange: 1,
